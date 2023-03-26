@@ -1,0 +1,22 @@
+
+<main>
+  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
+
+     <input
+      placeholder="codigo de Barras"
+      [(ngModel)]="codigoBarras"
+      name="codigoBarras"
+    />
+<button>Add</button>
+
+</form>
+<div *ngFor="let produtos of produtoss">
+
+
+   <input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.quantidadeProduto" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.tipoProduto" [ngModelOptions]="{ standalone: true }" readonly />
+
+</div>

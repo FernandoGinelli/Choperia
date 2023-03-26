@@ -1,0 +1,67 @@
+
+<h1>Cadastro de Produtos</h1>
+<main>
+  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
+
+     <input
+      placeholder="codigo de Barras"
+      [(ngModel)]="codigoBarras"
+      name="codigoBarras"
+    />
+
+    <input
+      placeholder="nome do Produto"
+      [(ngModel)]="nomeProduto"
+      name="nomeProduto"
+    />
+
+    <input
+      placeholder="valor do Produto"
+      [(ngModel)]="valorProduto"
+      name="valorProduto"
+    />
+    <input
+      placeholder="quantidade do Produto"
+      [(ngModel)]="quantidadeProduto"
+      name="quantidadeProduto"
+    />
+
+
+    <label>
+      Tipo Produto
+      <select [(ngModel)]="tipoProduto" name="newUserRole">
+        <option value="">Selecione uma opção</option>
+        <option value="Bebida">Bebida</option>
+        <option value="Alimento">Alimento</option>
+
+      </select>
+    </label>
+
+
+    <button>Add</button>
+
+  </form>
+  <div *ngFor="let produtos of produtoss">
+
+    <input [(ngModel)]="produtos.codigoBarras" />
+    <input [(ngModel)]="produtos.nomeProduto" />
+    <input [(ngModel)]="produtos.valorProduto" />
+    <input [(ngModel)]="produtos.quantidadeProduto" />
+    <input [(ngModel)]="produtos.tipoProduto" />
+    <button (click)="gerarPDF(produtos.codigoBarras)">Imprimir Codigo de barras</button>
+    <button  *ngIf="produtosRepo.metadata.apiUpdateAllowed"
+    (click)="saveProdutos(produtos)">Salvar</button>
+    <button
+      *ngIf="produtosRepo.metadata.apiDeleteAllowed"
+      (click)="deleteProdutos(produtos)"
+    >
+      Deletar
+    </button>
+    <div id="barcode"></div>
+    <div id="barcode" style="color: aqua; width: 20px;">Ola
+
+    </div>
+  </div>
+  <div id="barcode" style="color: aqua; width: 20px;"></div>
+
+</main>

@@ -1,0 +1,40 @@
+<div >
+<h1>Tela de login</h1>
+<main>
+  <form  (submit)="addUser()">
+    <input
+      placeholder="Nome:"
+      [(ngModel)]="nome"
+      name="nome"
+    />
+    <label>
+      Role:
+      <select [(ngModel)]="role" name="newUserRole">
+        <option value="">Selecione uma opção</option>
+        <option value="admin">Administrador</option>
+        <option value="fisSelf">FisSelf</option>
+
+      </select>
+    </label>
+    <input
+      placeholder="Senha"
+      [(ngModel)]="senha"
+      name="senha"
+      type="password"
+    />
+    <button>Add</button>
+  </form>
+  <div *ngFor="let user of users">
+      <input [(ngModel)]="user.name" />
+    <button  *ngIf="userRepo.metadata.apiUpdateAllowed"
+    (click)="saveUser(user)"; reloadPage()>Salvar</button>
+    <button
+      *ngIf="userRepo.metadata.apiDeleteAllowed"
+      (click)="deleteUser(user)"
+    >
+      Deletar
+    </button>
+  </div>
+
+</main>
+</div>
