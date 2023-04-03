@@ -13,13 +13,19 @@ export class Clients{
   id!: string;
 
   @Fields.string()
-  roles!: string[];
+  email!: string;
 
   @Fields.string()
   name!:string;
 
   @Fields.string()
-  password!:string;
+  cpf!:string;
+
+  @Fields.string()
+  telefone!:string;
+
+  @Fields.string()
+  cartao_vinculado!:string;
 
 }
 

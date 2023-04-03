@@ -14,10 +14,13 @@ import { RouterModule } from "@angular/router";
 import { RetirarProdutoComponent } from './retirar-produto/retirar-produto.component';
 import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
+import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.component';
+import { ChoppComponent } from './chopp/chopp.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent],
+  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent],
   imports: [ BrowserModule, HttpClientModule, FormsModule, RouterModule, AppRoutingModule],
 
   providers: [],

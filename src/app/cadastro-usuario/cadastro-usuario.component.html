@@ -24,7 +24,7 @@
     />
     <button>Add</button>
   </form>
-  <div *ngFor="let user of users">
+  <div *ngFor="let user of users" class="lista">
       <input [(ngModel)]="user.name" />
     <button  *ngIf="userRepo.metadata.apiUpdateAllowed"
     (click)="saveUser(user)"; reloadPage()>Salvar</button>

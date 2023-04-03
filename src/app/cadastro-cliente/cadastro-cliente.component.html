@@ -1,0 +1,52 @@
+<div >
+  <h1>Gerenciar cliente</h1>
+  <main>
+    <form  (submit)="addUser()">
+      <input
+        placeholder="Nome:"
+        [(ngModel)]="nome"
+        name="nome"
+      />
+
+      <input
+        placeholder="email"
+        [(ngModel)]="email"
+        name="senha"
+      />
+      <input
+        placeholder="cpf"
+        [(ngModel)]="cpf"
+        name="cpf"
+      />
+      <input
+        placeholder="telefone"
+        [(ngModel)]="telefone"
+        name="telefone"
+      />
+
+      <button>Add</button>
+    </form>
+    <div *ngFor="let user of users" class="lista">
+        <input [(ngModel)]="user.name" />
+        <input [(ngModel)]="user.email" />
+        <input [(ngModel)]="user.cpf" />
+        <input [(ngModel)]="user.telefone" />
+        <input [(ngModel)]="user.cartao_vinculado" />
+      <button  *ngIf="userRepo.metadata.apiUpdateAllowed"
+      (click)="saveUser(user)">Salvar</button>
+      <button
+        *ngIf="userRepo.metadata.apiDeleteAllowed"
+        (click)="deleteUser(user)"
+      >
+        Deletar
+      </button>
+      <button
+        *ngIf="userRepo.metadata.apiDeleteAllowed"
+        (click)="navegarParaVincular(user)"
+      >
+        Vincular RFID
+      </button>
+    </div>
+
+  </main>
+  </div>

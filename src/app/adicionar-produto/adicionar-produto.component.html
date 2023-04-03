@@ -1,4 +1,4 @@
-
+<h1>Adicionar Produto</h1>
 <main>
   <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
 
@@ -10,7 +10,7 @@
 <button>Add</button>
 
 </form>
-<div *ngFor="let produtos of produtoss">
+<div *ngFor="let produtos of produtoss" class="lista">
   <input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly />
   <input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly />
   <input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly />

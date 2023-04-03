@@ -41,7 +41,7 @@
     <button>Add</button>
 
   </form>
-  <div *ngFor="let produtos of produtoss">
+  <div *ngFor="let produtos of produtoss" class="lista">
 
     <input [(ngModel)]="produtos.codigoBarras" />
     <input [(ngModel)]="produtos.nomeProduto" />
@@ -58,10 +58,8 @@
       Deletar
     </button>
     <div id="barcode"></div>
-    <div id="barcode" style="color: aqua; width: 20px;">Ola
 
-    </div>
   </div>
-  <div id="barcode" style="color: aqua; width: 20px;"></div>
+
 
 </main>

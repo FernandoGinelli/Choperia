@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { TodoComponent } from './todo/todo.component';
 import { RetirarProdutoComponent } from './retirar-produto/retirar-produto.component';
+import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto.component';
+import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.component';
+import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
+import { ChoppComponent } from './chopp/chopp.component';
 
 
 
@@ -14,7 +16,12 @@ const routes: Routes = [
   { path: 'home', component: RetirarProdutoComponent },
   { path: 'products', component: ProdutosComponent },
   { path: 'cadusuario', component: CadastroUsuarioComponent },
-  { path: 'todo', component: TodoComponent }
+  { path: 'todo', component: TodoComponent },
+  { path: 'retiprod', component: RetirarProdutoComponent },
+  { path: 'addprod', component: AdicionarProdutoComponent },
+  { path: 'cadclient', component: CadastroClienteComponent },
+  {path: 'vincular', component: VincularClienteComponent },
+  {path: 'saidachop', component: ChoppComponent},
 ];
 
 
