@@ -1,14 +1,76 @@
+:root {
+  --cor-primaria: #8B5A2B; /* Marrom */
+  --cor-secundaria: #D2B48C; /* Bege */
+  --cor-acento: #fde874; /* Amarelo ouro */
+  --cor-texto: #333; /* Cinza escuro para texto */
+  --cor-fundo: #F5F5DC; /* Branco amarelado */
+  --cor-base: #8B5A2B; /* cor base amadeirada */
 
+  --primary-color: #F5AF19;
+  --secondary-color: #823b21;
+  --tertiary-color: #1E2C1B;
+  --text-color: #FFFFFF;
+  --background-color: #000000;
+
+  --black: #000000;
+  --yellow: #FFD700;
+  --white: #F7F7F7;
+
+}
+*{
+  margin: 0;
+
+}
+
+/* Exemplo de uso das cores: */
+
+h1 {
+  background-color: var(--black);
+  color: var(--primary-color); /* Cor do texto branca */
+  padding: 10px; /* Adiciona espaço interno */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: left;
+
+}
+
+a {
+  color: var(--cor-acento);
+  text-decoration: none;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.btn:hover {
+  background-color: var(--cor-secundaria);
+  cursor: pointer;
+}
 
 
 
 /* Define um background color e centraliza o conteúdo */
-header, main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f2f2f2;
+
+main {
+  height: 100vh;
+  min-height: 500px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flexbox;
+  overflow-y: auto;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+  border-radius: 30px;
 }
+
+
 
 app-auth {
   border-top: 100%;
@@ -20,7 +82,7 @@ app-auth {
   display: inline;
   justify-content: center;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: var(--primary-color);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
@@ -28,60 +90,76 @@ app-auth {
 /* Define o estilo do formulário de login */
 form {
   display: flex;
-  margin: 200px;
+  margin-bottom: 50px;
+  margin: 100px;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #fff;
+
+  background-color: var(--cor-secundaria);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
 
 }
 
-input, button {
-  margin-top: 10px;
+label {
+  margin-bottom: 10px;
+}
+
+input, textarea {
   padding: 10px;
+  margin-bottom: 2px;
   border-radius: 5px;
-  border: none;
+  border: 1px solid --cor-primaria;
+  background-color: #fffbf6;
 }
-
-button {
-  background-color: #000;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: #fff;
-  color: #000;
-}
-
 /* Define o estilo do texto de boas-vindas e do botão de saída */
 header {
+  background: linear-gradient(to right,#000000, #2c1e17);
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-size: 20px;
-  color: #000;
+  padding: 10px;
+  font-size: 10px;
 }
-
-button {
-  margin-top: 20px;
-  font-size: 1.2em;
-  background-color: transparent;
-  color: #000;
-  border: 2px solid #000;
-  padding: 10px 20px;
+.user-info {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+header .btn-header{
+ background-color: #eee;
+}
+
+header .btn-header:hover{
+  background-color: #e47575;
+ }
+
+
+
+button {
+  background: #f5af19;
+  color: #2c1e17;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 button:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--tertiary-color);
+  color: var(--text-color);
 }
 
 div.principal{
@@ -91,7 +169,8 @@ div.principal{
   bottom: 0;
   margin-right: 1%;
   margin-left: 17%;
-  background-color: #ffffff;
+  background-color: black;
+  font-family: Arial, sans-serif;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
@@ -103,7 +182,7 @@ nav {
   bottom: 0;
   left: 0;
   width: 15%;
-  background-color: #e6e6e6;
+  background: linear-gradient(to right, #2c1e17, #000000);
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
 }
@@ -114,8 +193,9 @@ nav a {
   padding: 10px;
 
   font-size: 18px;
-  color: #333;
-  text-decoration: none;
+  color: #ffff00;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
   text-transform: uppercase;
 
   width: 100%;
@@ -124,7 +204,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #ccc;
+  color: #c4a657;
 }
 
 div.logo {
@@ -149,12 +229,149 @@ div.logo {
 
 .menu a {
   font-size: 1.2em;
-  color: #555;
+  color: var(--primary-color);
   text-decoration: none;
   margin-bottom: 10px;
   transition: all 0.3s ease;
 }
 
+  .container, h5 {
+    height: 320px;
+    width: 338px;
+    overflow: auto;
+    padding: 10px;;
+    border-radius: 10px;
+    border-collapse: collapse;
+    background: linear-gradient(to right, #2c1e17, #000000);
+    color: #ffffff
+  }
+
+  tr, td {
+   padding: 0.2rem;
+   display: inline-block;
+   align-items: center;
+ }
+
+
+
+.caption {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.role-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #332211;
+}
+
+
+.formularioProdutos {
+ background-color: #000;
+ padding: 15px;
+}
+
+
+.formularioProdutos form {
+  display: inline;
+  background-image: radial-gradient(circle at center, #6e6b6b, #4a4848);
+  margin-left: 1px;
+
+}
+
+.formularioProdutos input {
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-right: 10px;
+}
+
+.formularioProdutos button {
+  padding: 7px;
+  border-radius: 5px;
+  margin-right: 10px;
+
+}
+.formularioProdutos select {
+  padding: 6px;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: 1px solid
+}
+
+.produtos-list {
+  list-style-type: none;
+  padding: 0;
+
+}
+
+  .containerProduto {
+    margin: 10px;
+    height: 100%;
+    overflow-y: auto; /* Adiciona a barra de rolagem para o eixo Y */
+    background:#000;
+    color: #F5DEB3;
+    display: flex;
+    justify-content: center;
+  }
+
+/* estilo para as colunas dentro de cada item */
+.produtos-column {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+
+/* estilo para os rótulos de cada campo */
+.produtos-column label {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 1px; /* adiciona espaço abaixo do label */
+  font-size: 14px;
+  flex-basis: 30%; /* Define a largura do rótulo */
+}
+
+/* estilo para os campos de entrada */
+.produtos-column input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 1px;
+  font-size: 12px;
+  margin-right: 10px; /* adiciona espaço à direita do input */
+  margin-bottom: 1px; /* adiciona espaço abaixo do input */
+  flex-basis: 50%; /* Define a largura do campo de entrada */
+}
+
+/* estilo para os botões de ação */
+.produtos-item button {
+  height: 58px;
+  padding: 5px 5px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 1px; /* adiciona espaço abaixo do botão */
+  flex-basis: 20%; /* Define a largura do botão */
+  margin-left: 10px; /* Adiciona margem à esquerda */
+}
+.produtos-item button:hover{
+  background-color: #2c682e;
+}
+
+/* estilo para cada item */
+.produtos-item {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
 
 
 

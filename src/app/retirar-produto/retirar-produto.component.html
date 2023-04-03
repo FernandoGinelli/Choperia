@@ -1,16 +1,16 @@
-<h1>Retirar Produto</h1>
+
 <main>
-  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()" >
+  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
 
      <input
       placeholder="codigo de Barras"
       [(ngModel)]="codigoBarras"
       name="codigoBarras"
     />
-<button>Retirar</button>
+<button>Add</button>
 
 </form>
-<div *ngFor="let produtos of produtoss" class="lista">
+<div *ngFor="let produtos of produtoss">
 
 
    <input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly />

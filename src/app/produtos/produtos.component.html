@@ -1,6 +1,6 @@
 
 <h1>Cadastro de Produtos</h1>
-<main>
+<div class="formularioProdutos">
   <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
 
      <input
@@ -25,41 +25,53 @@
       [(ngModel)]="quantidadeProduto"
       name="quantidadeProduto"
     />
-
-
-    <label>
-      Tipo Produto
       <select [(ngModel)]="tipoProduto" name="newUserRole">
         <option value="">Selecione uma opção</option>
         <option value="Bebida">Bebida</option>
         <option value="Alimento">Alimento</option>
 
       </select>
-    </label>
-
-
-    <button>Add</button>
+    <button>Incluir</button>
 
   </form>
-  <div *ngFor="let produtos of produtoss" class="lista">
+</div>
 
-    <input [(ngModel)]="produtos.codigoBarras" />
-    <input [(ngModel)]="produtos.nomeProduto" />
-    <input [(ngModel)]="produtos.valorProduto" />
-    <input [(ngModel)]="produtos.quantidadeProduto" />
-    <input [(ngModel)]="produtos.tipoProduto" />
-    <button (click)="gerarPDF(produtos.codigoBarras)">Imprimir Codigo de barras</button>
-    <button  *ngIf="produtosRepo.metadata.apiUpdateAllowed"
-    (click)="saveProdutos(produtos)">Salvar</button>
-    <button
-      *ngIf="produtosRepo.metadata.apiDeleteAllowed"
-      (click)="deleteProdutos(produtos)"
-    >
-      Deletar
-    </button>
-    <div id="barcode"></div>
+<div>
+  <main>
 
-  </div>
+  <div class="containerProduto">
+    <ul class="produtos-list">
+  <li *ngFor="let produtos of produtoss" class="produtos-item">
+    <div class="produtos-column">
+      <label for="{{produtos.codigoBarras}}">Código de barras:</label>
+      <input  id="{{produtos.codigoBarras}}" [(ngModel)]="produtos.codigoBarras" />
+
+      <label for="{{produtos.nomeProduto}}">Nome:</label>
+      <input  id="{{produtos.nomeProduto}}" [(ngModel)]="produtos.nomeProduto" />
+
+      <label for="{{produtos.valorProduto}}">Valor:</label>
+      <input id="{{produtos.valorProduto}}" [(ngModel)]="produtos.valorProduto" />
+
+
+      <label for="{{produtos.quantidadeProduto}}">Quantidade:</label>
+      <input id="{{produtos.quantidadeProduto}}" [(ngModel)]="produtos.quantidadeProduto" />
+
+      <label for="{{produtos.tipoProduto}}">Tipo do produto:</label>
+      <input id="{{produtos.tipoProduto}}" [(ngModel)]="produtos.tipoProduto" />
+</div>
+<div>
+      <button (click)="gerarPDF(produtos.codigoBarras)">Imprimir Código de barras</button>
+      </div>
+      <div>
+      <button *ngIf="produtosRepo.metadata.apiUpdateAllowed" (click)="saveProdutos(produtos)">Salvar</button>
+      </div>
+      <div>
+        <button *ngIf="produtosRepo.metadata.apiDeleteAllowed" (click)="deleteProdutos(produtos)">Deletar</button>
+      </div>
+  </li>
+</ul>
+</div>
 
 
 </main>
+</div>
