@@ -10,14 +10,6 @@ import { Produtos } from 'src/shared/Produtos';
 export class ChoppComponent implements OnInit {
   produtosRepo = remult.repo(Produtos);
   produtoss: Produtos[] = [];
-  produtoss2: Produtos = {
-    tipoProduto: 'bebida',
-    id: '',
-    nomeProduto: '',
-    codigoBarras: '',
-    valorProduto: '',
-    quantidadeProduto: ''
-  };
 
   codigoBarras = '';
   nomeProduto = '';
@@ -66,7 +58,7 @@ export class ChoppComponent implements OnInit {
 
 
     this.produtosRepo
-      .find()
+      .find({where:{ tipoProduto:{ $contains:"Bebida" }}})
       .then((items: Produtos[]) => (this.produtoss = items));
   }
 }

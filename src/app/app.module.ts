@@ -17,10 +17,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
 import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.component';
 import { ChoppComponent } from './chopp/chopp.component';
+import { ReporChoppComponent } from './repor-chopp/repor-chopp.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent],
+  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent],
   imports: [ BrowserModule, HttpClientModule, FormsModule, RouterModule, AppRoutingModule],
 
   providers: [],

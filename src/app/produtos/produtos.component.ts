@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { remult } from 'remult';
 import { Produtos } from 'src/shared/Produtos';
 import JsBarcode from 'jsbarcode';
@@ -15,6 +15,7 @@ import 'jspdf-autotable';
 export class ProdutosComponent implements OnInit {
   produtosRepo = remult.repo(Produtos)
   produtoss: Produtos[] = []
+  @ViewChild('divCodigoBarras') divCodigoBarras!: any;
 
   codigoBarras = ""
   nomeProduto = ""
@@ -54,7 +55,7 @@ async deleteProdutos(produtos: Produtos) {
 }
 
 
-gerarPDF(codigoBarras: string) {
+gerarPDF = async (codigoBarras: string) => {
   codigoBarras;
   const doc = new jsPDF({
     orientation: 'portrait',
@@ -65,7 +66,7 @@ gerarPDF(codigoBarras: string) {
 
 
   // Adiciona o código de barras ao documento
-  JsBarcode(doc.canvas, codigoBarras, {
+  await JsBarcode("#divCodigoBarras", codigoBarras, {
     format: 'CODE128',
     displayValue: true,
     textAlign:"Center",
@@ -74,8 +75,31 @@ gerarPDF(codigoBarras: string) {
   });
 
   // Salva o PDF e abre a janela de impressão
-  doc.save('codigo_barras.pdf');
-  doc.autoPrint();
+
+
+  const mywindow = window.open('', '', 'height=800');
+
+  var svg: any = document.getElementById("divCodigoBarras");
+
+
+  const image = document.createElement('img');
+  image.src = svg!.toDataURL();
+  svg!.style.width = '38px';
+
+
+  const divPrincipal = document.createElement('div');
+
+  divPrincipal.append(image!.cloneNode(), image!.cloneNode(), image!.cloneNode());
+
+
+  // svg!.style.height = '500px';
+  // svg!.style.fontSize = '500px';
+
+  mywindow!.document.body.appendChild(divPrincipal!);
+
+
+  // mywindow!.print();
+
 }
 
 ngOnInit() {
