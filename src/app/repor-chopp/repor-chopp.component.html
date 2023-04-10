@@ -1,1 +1,22 @@
-<p>repor-chopp works!</p>
+<h1>Repor Chop</h1>
+<main>
+  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()" >
+
+     <input
+      placeholder="codigo de Barras"
+      [(ngModel)]="codigoBarras"
+      name="codigoBarras"
+    />
+<button>Retirar</button>
+
+</form>
+<div *ngFor="let produtos of produtoss" class="lista">
+
+
+   <input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.quantidadeProduto" [ngModelOptions]="{ standalone: true }" readonly />
+   <input [(ngModel)]="produtos.tipoProduto" [ngModelOptions]="{ standalone: true }" readonly />
+
+</div>

@@ -1,4 +1,5 @@
 import { Allow, Entity, Fields, getFields, IdEntity, UserInfo } from "remult";
+import { Cartao } from "./Cartao";
 
 @Entity<Clients>("Clients",{
   allowApiCrud: Allow.everyone,
@@ -9,8 +10,9 @@ import { Allow, Entity, Fields, getFields, IdEntity, UserInfo } from "remult";
 })
 export class Clients{
 
-  @Fields.uuid()
-  id!: string;
+
+  @Fields.string()
+  cpf!:string;
 
   @Fields.string()
   email!: string;
@@ -18,8 +20,6 @@ export class Clients{
   @Fields.string()
   name!:string;
 
-  @Fields.string()
-  cpf!:string;
 
   @Fields.string()
   telefone!:string;

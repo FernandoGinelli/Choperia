@@ -1,27 +1,21 @@
 import { Allow, Entity, Fields, getFields, IdEntity, UserInfo } from "remult";
 
-@Entity<User>("users",{
+@Entity<Cartao>("cartao",{
   allowApiCrud: Allow.everyone,
   //allowApiInsert:["admin"],
   //allowApiDelete:["admin"],
   //allowApiUpdate: ["admin"],
 
 })
-export class User implements UserInfo {
-
-  @Fields.string()
-  name!:string;
-
-  @Fields.uuid()
-  id!: string;
-
-  @Fields.string()
-  roles!: string[];
-
+export class Cartao{
 
 
   @Fields.string()
-  password!:string;
+  cartao_vinculado!:string;
+
+
+  @Fields.number()
+  conta = ""
 
 }
 
