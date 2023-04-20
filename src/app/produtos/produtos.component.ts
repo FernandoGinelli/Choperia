@@ -84,9 +84,7 @@ gerarPDF = async (codigoBarras: string) => {
 
   const image = document.createElement('img');
   image.src = svg!.toDataURL();
-  image.style.width = '100px';
-  image.style.marginRight = '25px';
-
+  svg!.style.width = '38px';
 
 
   const divPrincipal = document.createElement('div');
@@ -100,7 +98,7 @@ gerarPDF = async (codigoBarras: string) => {
   mywindow!.document.body.appendChild(divPrincipal!);
 
 
-  mywindow!.print();
+  // mywindow!.print();
 
 }
 

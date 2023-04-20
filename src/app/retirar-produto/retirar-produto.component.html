@@ -2,10 +2,11 @@
 <main class="container">
   <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()" class ="form-inline" >
 
-     <input
+     <input id="meuCampo"
       placeholder="codigo de Barras"
       [(ngModel)]="codigoBarras"
       name="codigoBarras"
+      autofocus
     />
 <button>Add</button>
 

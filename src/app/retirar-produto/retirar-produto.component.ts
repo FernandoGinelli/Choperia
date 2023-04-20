@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { remult } from 'remult';
 import { Produtos } from 'src/shared/Produtos';
 
@@ -8,6 +8,8 @@ import { Produtos } from 'src/shared/Produtos';
   styleUrls: ['./retirar-produto.component.css']
 })
 export class RetirarProdutoComponent implements OnInit {
+
+
   produtosRepo = remult.repo(Produtos)
   produtoss: Produtos[] = []
 
@@ -55,6 +57,7 @@ async deleteProdutos(produtos: Produtos) {
 
 
 ngOnInit() {
+
   this.produtosRepo.find().then((items) => (this.produtoss = items));
 }
 

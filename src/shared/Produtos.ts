@@ -1,4 +1,4 @@
-import { Allow, Entity, Fields} from "remult"
+import { Allow, Entity, Fields, Remult, remult, } from "remult"
 
 @Entity<Produtos>("produtos", {
   allowApiCrud: Allow.authenticated,
@@ -8,15 +8,16 @@ import { Allow, Entity, Fields} from "remult"
 })
 
 
+
 export class Produtos {
-  @Fields.uuid()
-  id!: string
+
+  @Fields.string()
+  codigoBarras! : string
 
   @Fields.string()
   nomeProduto = ""
 
-  @Fields.string()
-  codigoBarras = ""
+
 
   @Fields.number()
   valorProduto = ""
@@ -27,4 +28,6 @@ export class Produtos {
   @Fields.string()
   tipoProduto = ""
 }
+
+
 

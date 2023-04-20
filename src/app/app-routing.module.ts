@@ -8,6 +8,7 @@ import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto
 import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.component';
 import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
 import { ChoppComponent } from './chopp/chopp.component';
+import { ReporChoppComponent } from './repor-chopp/repor-chopp.component';
 
 
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'cadclient', component: CadastroClienteComponent },
   {path: 'vincular', component: VincularClienteComponent },
   {path: 'saidachop', component: ChoppComponent},
+  {path: 'entrachop', component: ReporChoppComponent},
 ];
 
 
