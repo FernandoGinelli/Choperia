@@ -1,42 +1,61 @@
-<div >
-<h1>Tela de login</h1>
-<main>
-  <div class="formularioProdutos">
-  <form  (submit)="addUser()">
-    <input
-      placeholder="Nome:"
-      [(ngModel)]="nome"
-      name="nome"
-    />
-    <input
-      placeholder="Senha"
-      [(ngModel)]="senha"
-      name="senha"
-      type="password"
-    />
-    <label>
-      <select [(ngModel)]="role" name="newUserRole">
+<main class="container">
+  <h1 class="mt-3">Cadastro de Usuários</h1>
+  <form  (submit)="addUser()" class="row">
+    
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" class="form-control" id="nome" [(ngModel)]="nome" name="nome" placeholder="Nome">
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="senha">Senha:</label>
+      <input type="password" class="form-control" id="senha" [(ngModel)]="senha" name="senha" placeholder="Senha">
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <label for="role">Role:</label>
+      <select class="form-control" id="role" [(ngModel)]="role" name="role" required>
         <option value="">Selecione a Role</option>
         <option value="admin">Administrador</option>
         <option value="fisSelf">FisSelf</option>
-
       </select>
-    </label>
-    <button>Cadastrar</button>
-  </form>
-</div>
-  <div class="containerUser">
-    <div>            
-      <li *ngFor="let user of users " class="user-item">
-        <span>
-        <input [(ngModel)]="user.name" /> 
-    </span>
-
-    <button  class="btnTabela" *ngIf="userRepo.metadata.apiUpdateAllowed"(click)="saveUser(user)"; reloadPage()>Salvar</button>
-    <button  class="btnTabela" *ngIf="userRepo.metadata.apiDeleteAllowed"(click)="deleteUser(user)">Deletar</button>
-  </li>
+    </div>
   </div>
+  <div class="col-sm-12">
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </div>
+  </form>
+
+<div class="table-container">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Senha</th>
+      <th>Role</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.name}}</td>
+      <td><input [(ngModel)]="user.password" type="password" /></td>
+      <td>
+        <select [(ngModel)]="user.roles">
+          <option value="">Selecione a Role</option>
+          <option value="admin">Administrador</option>
+          <option value="fisSelf">FisSelf</option>
+        </select>
+      </td>
+      <td>
+        <button class="btn-primary" *ngIf="userRepo.metadata.apiUpdateAllowed" (click)="saveUser(user)">Salvar</button>
+        <button class="btn-danger" *ngIf="userRepo.metadata.apiDeleteAllowed" (click)="deleteUser(user)">Deletar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </main>
-</div>
-

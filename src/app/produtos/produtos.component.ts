@@ -70,7 +70,7 @@ gerarPDF = async (codigoBarras: string) => {
     format: 'CODE128',
     displayValue: true,
     textAlign:"Center",
-    fontSize: 10, // largura do código de barras em mm
+    fontSize: 25, // largura do código de barras em mm
     height: 40, // altura do código de barras em mm
   });
 
@@ -84,7 +84,9 @@ gerarPDF = async (codigoBarras: string) => {
 
   const image = document.createElement('img');
   image.src = svg!.toDataURL();
-  svg!.style.width = '38px';
+  image.style.width = '100px';
+  image.style.marginRight = '25px';
+
 
 
   const divPrincipal = document.createElement('div');
@@ -98,7 +100,7 @@ gerarPDF = async (codigoBarras: string) => {
   mywindow!.document.body.appendChild(divPrincipal!);
 
 
-  // mywindow!.print();
+  mywindow!.print();
 
 }
 
