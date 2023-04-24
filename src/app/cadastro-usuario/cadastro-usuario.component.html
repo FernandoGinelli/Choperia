@@ -27,35 +27,5 @@
   <div class="col-sm-12">
     <button type="submit" class="btn btn-primary">Cadastrar</button>
   </div>
-  </form>
-
-<div class="table-container">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Senha</th>
-      <th>Role</th>
-      <th>Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{user.name}}</td>
-      <td><input [(ngModel)]="user.password" type="password" /></td>
-      <td>
-        <select [(ngModel)]="user.roles">
-          <option></option>
-          <option value="admin">Administrador</option>
-          <option value="fisSelf">FisSelf</option>
-        </select>
-      </td>
-      <td>
-        <button class="btn-primary" *ngIf="userRepo.metadata.apiUpdateAllowed" (click)="saveUser(user)">Salvar</button>
-        <button class="btn-danger" *ngIf="userRepo.metadata.apiDeleteAllowed" (click)="deleteUser(user)">Deletar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
 </div>
 </main>
