@@ -1,21 +1,26 @@
-<div class="body">
 
-<header class="content-header">
-  <h1>{{title}}</h1>
-</header>
-<nav>
-  <div class="logo">
-    <a routerLink="home"><img src="logo.png" alt="Logo"></a>
-  </div>
-  <div class="menu">
-    <a routerLink="home">Início</a>
-    <a routerLink="products">Produtos</a>
-    <a routerLink="cadusuario">Cadastro de Usuário</a>
-    <a routerLink="todo">Lista de Tarefas</a>
-    <a routerLink="retiprod">Retirar Produtos</a>
-    <a routerLink="addprod">Adicionar Produtos</a>
-    <a routerLink="cadclient">Cadastrar Clientes</a>
-    <a routerLink="saidachop">Saida Chopp</a>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="body">
+    <div class="sidebar">
+      <nav>
+        <ul>
+        <li routerLink="home">Início</li>
+        <li routerLink="products">Produtos</li>
+        <li routerLink="cadusuario">Cadastro de Usuário</li>
+        <li routerLink="todo">Lista de Tarefas</li>
+        <li routerLink="caixa">Caixa</li>
+        <li routerLink="retiprod">Retirar Produtos</li>
+        <li routerLink="addprod">Adicionar Produtos</li>
+        <li routerLink="cadclient">Cadastrar Clientes</li>
+        <li routerLink="saidachop">Saida Chopp</li>
+        </ul>
+    </nav>
+    <div class="formulario">
+      <app-auth class="auth"></app-auth>
+    </div>
   </div>
   </div>
 </body>
