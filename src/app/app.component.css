@@ -1,0 +1,42 @@
+.auth{
+    margin-left: 5vh;
+    margin-top: 1px;
+    width: 100%;
+}
+
+.sidebar {
+    position: flex;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #212121;
+    color: #030303;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    padding: 15px 25px;
+  }
+  
+  nav li:last-child {
+    border-bottom: none;
+  }
+  
+  nav li {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  nav li:hover {
+    background-color: rgba(219, 219, 255, 0.877);
+    color: black;
+  }
+ 

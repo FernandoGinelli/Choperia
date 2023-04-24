@@ -1,6 +1,6 @@
 
-<main>
-  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
+<main class="container">
+  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()" class ="form-inline" >
 
      <input id="meuCampo"
       placeholder="codigo de Barras"
@@ -11,13 +11,30 @@
 <button>Add</button>
 
 </form>
-<div *ngFor="let produtos of produtoss">
 
 
-   <input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly />
-   <input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly />
-   <input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly />
-   <input [(ngModel)]="produtos.quantidadeProduto" [ngModelOptions]="{ standalone: true }" readonly />
-   <input [(ngModel)]="produtos.tipoProduto" [ngModelOptions]="{ standalone: true }" readonly />
 
+   <div class="table-container">
+      <table class="table">
+         <thead>
+            <tr>
+              <th>Código de Barras</th>
+              <th>Nome do Produto</th>
+              <th>Valor do Produto</th>
+              <th>Quantidade do Produto</th>
+              <th>Tipo do Produto</th>
+            </tr>
+            </thead>
+   <tbody>   
+   <tr *ngFor="let produtos of produtoss">
+         
+   <td><input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly /></td>
+   <td><input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
+   <td><input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
+   <td><input [(ngModel)]="produtos.quantidadeProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
+   <td><input [(ngModel)]="produtos.tipoProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
+   </tr>
+</tbody>
+      </table>
 </div>
+</main>

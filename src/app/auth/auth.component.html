@@ -1,7 +1,10 @@
-<div class="principal">
-<ng-container *ngIf="!remult.authenticated()"><h1>Login no sistema</h1>
-  <main>
-    <form (submit)="signIn()"><input
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<ng-container *ngIf="!remult.authenticated()">
+    <form class="login-form" (submit)="signIn()">
+      <h1 class = login-title>Chopperia Pullini</h1>
+      <input
       [(ngModel)]="signInUsername"
       placeholder="Usuario"
       name="username"
@@ -14,17 +17,16 @@
       />
       <button>Sign in</button>
     </form>
-  </main>
 </ng-container>
-<ng-container *ngIf="remult.authenticated()">
+<ng-container *ngIf="remult.authenticated()" >
   <header>
-    <div class="user-info">
     <span>{{ remult.user?.name }}</span>
-  </div>
-    <button class="btn-header" (click)="signOut()">Sign Out</button>
+    <button class="btn-logout"(click)="signOut()">Sign Out</button>
   </header>
-
+  <div class="container">
 <router-outlet></router-outlet>
+</div>
 </ng-container>
 
-</div>
+
+
