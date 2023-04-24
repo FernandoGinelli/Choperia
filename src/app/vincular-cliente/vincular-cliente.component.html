@@ -2,13 +2,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <div>
-  <h1>Vincular RFID</h1>
-  <main>
-    <div class="lista" style="display: grid;"><label>Nome:</label>
+  <h1>Vincular rfid</h1>
+  <main class="container">
+    <div class="table-container" style="display: grid;"><label>Nome:</label>
       <input [(ngModel)]="cliente.name" [readonly]="true" />
       <label>Email:</label>
       <input [(ngModel)]="cliente.email" [readonly]="true" />
-      <label>CPF:</label>
+      <label>CPF:</label> 
       <input [(ngModel)]="cliente.cpf" [readonly]="true" />
       <label>Telefone:</label>
       <input [(ngModel)]="cliente.telefone" [readonly]="true" />

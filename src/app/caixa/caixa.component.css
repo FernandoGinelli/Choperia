@@ -1,0 +1,98 @@
+input{
+  margin-left: 5px;
+  margin-right: 10px;
+  width: 30%;
+  
+}
+
+.recebimento-caixa {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 65%;
+  display: left;
+  height: 50vh;
+  border: 1px solid #040303;
+  background-color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+
+td{
+  padding: 10px;
+  background-color: rgb(192, 192, 228);
+  color: #000000;
+}
+th {
+  padding: 10px;
+  border: 1px solid #040303;
+  background-color: rgb(24, 24, 156);
+  color: #fff;
+  
+}
+
+.valores {
+  float: right;
+  width: 30%;
+  margin-left: 30px;
+  
+}
+.valores .campo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.campo input{
+width: 60%;
+}
+
+.valores .campo label {
+  margin-right: 10px;
+}
+
+.valores button {
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 60px;
+  width: 70%;
+  margin-bottom: 10px;
+ }
+
+
+@media screen and (max-width: 768px) {
+  .container{
+      width: 100%;    
+  }
+  .table-container {
+  width: 100%;
+  }
+  .valores {
+  float: none;
+  width: 100%;
+  margin-left: 0;
+  margin-bottom: 20px;
+  }
+  .valores .campo {
+  flex-direction: column;
+  }
+  button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  }
+  }
+

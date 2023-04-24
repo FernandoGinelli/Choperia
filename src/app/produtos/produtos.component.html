@@ -21,19 +21,20 @@
       <div class="form-group col-md-3">
         <label for="tipoProduto" class="control-label">Tipo do Produto:</label>
         <select class="form-control" id="tipoProduto" [(ngModel)]="tipoProduto" name="tipoProduto">
-          <option value="">Selecione uma opção</option>
+          <option value="Alimento">Selecione uma opção</option>
           <option value="Bebida">Bebida</option>
           <option value="Alimento">Alimento</option>
         </select>
+
       </div>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary">Incluir</button>
     </div>
   </form>
-  
+
   <div class="table-container">
-    
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -60,5 +61,12 @@
       </tr>
      </tbody>
   </table>
+
 </div>
-  </main>
+<canvas #divCodigoBarras id="divCodigoBarras" style="height: 0; width: 0;"></canvas>
+
+</main>
+
+
+
+

@@ -1,6 +1,5 @@
 
 <main class="container">
-   <h1>Retirar Produtos</h1>
   <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()" class ="form-inline" >
 
      <input id="meuCampo"
@@ -9,7 +8,7 @@
       name="codigoBarras"
       autofocus
     />
-<button class ="btn btn-primary btn-sm mr-2">Adicionar</button>
+<button>Add</button>
 
 </form>
 

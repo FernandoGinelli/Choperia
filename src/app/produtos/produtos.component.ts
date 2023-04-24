@@ -21,7 +21,8 @@ export class ProdutosComponent implements OnInit {
   nomeProduto = ""
   valorProduto = ""
   quantidadeProduto =""
-  tipoProduto = ""
+  tipoProduto = 'Alimento';
+
 
 
 
@@ -33,7 +34,8 @@ export class ProdutosComponent implements OnInit {
       this.nomeProduto = ""
       this. valorProduto = ""
       this.quantidadeProduto =""
-      this.tipoProduto = ""
+      this.tipoProduto = 'Alimento';
+
     } catch (error: any) {
       alert(error.message)
     }
@@ -70,7 +72,7 @@ gerarPDF = async (codigoBarras: string) => {
     format: 'CODE128',
     displayValue: true,
     textAlign:"Center",
-    fontSize: 25, // largura do código de barras em mm
+    fontSize: 10, // largura do código de barras em mm
     height: 40, // altura do código de barras em mm
   });
 
@@ -84,7 +86,9 @@ gerarPDF = async (codigoBarras: string) => {
 
   const image = document.createElement('img');
   image.src = svg!.toDataURL();
-  svg!.style.width = '38px';
+
+  image.style.width = '100px'
+  image.style.margin = '10px'
 
 
   const divPrincipal = document.createElement('div');
@@ -98,7 +102,7 @@ gerarPDF = async (codigoBarras: string) => {
   mywindow!.document.body.appendChild(divPrincipal!);
 
 
-  // mywindow!.print();
+   mywindow!.print();
 
 }
 

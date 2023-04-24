@@ -1,8 +1,8 @@
 <main class="container">
-  <h1>Lista Self-Service</h1>
+  <h1>Lista Tarefas</h1>
   <form *ngIf="taskRepo.metadata.apiInsertAllowed" (submit)="addTask()">
     <input placeholder="Oque tem que ser feito?" [(ngModel)]="newTaskTitle" name="newTaskTitle" />
-    <button class="btn btn-primary ">Adicionar </button>
+    <button>Add</button>
   </form>
   <div class="table-container">
     <table class="table">
@@ -28,9 +28,9 @@
         </tr>
       </tbody>
     </table>
-    </div>
-    <div class="buttons">
-      <button (click)="setAllCompleted(true)" class="btn btn-primary btn-sm mr-2">Marcar tudo como Completo</button>
-      <button (click)="setAllCompleted(false)" class="btn btn-danger btn-sm mr-2">Marcar tudo como Incompleto</button>
-    </div>
+  </div>
+  <div>
+    <button (click)="setAllCompleted(true)">Marcar tudo como Completo</button>
+    <button (click)="setAllCompleted(false)">Marcar tudo como Incompleto</button>
+  </div>
 </main>

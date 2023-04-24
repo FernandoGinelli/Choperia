@@ -20,7 +20,7 @@ export class AdicionarProdutoComponent implements OnInit {
   async addProdutos() {
     try {
       const produtoExistente = this.produtoss.find((produto) => produto.codigoBarras === this.codigoBarras);
-      if (produtoExistente) {
+      if (produtoExistente && produtoExistente.tipoProduto == "Alimento" ) {
         produtoExistente.quantidadeProduto += 1;
         await this.saveProdutos(produtoExistente);
       } else {
@@ -52,10 +52,13 @@ async deleteProdutos(produtos: Produtos) {
 
 
 ngOnInit() {
-  this.produtosRepo.find().then((items) => (this.produtoss = items));
+  this.produtosRepo
+      .find({where:{ tipoProduto:{ $contains:"Alimento" }}})
+      .then((items: Produtos[]) => (this.produtoss = items));
+  }
 }
 
 
-}
+
 
 

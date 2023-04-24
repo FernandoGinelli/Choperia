@@ -8,9 +8,9 @@ html, body {
   display: flex;
   height: 100vh;
   background-color: rgb(10, 10, 43);
- 
 
- 
+
+
 }
 
 /* Define a classe do menu nav */
@@ -23,7 +23,7 @@ nav {
   top: 0;
   left: 0;
   background-color: rgb(16, 15, 65);
-  
+
 }
 /* Define a classe do menu */
 
