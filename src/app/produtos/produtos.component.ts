@@ -21,7 +21,8 @@ export class ProdutosComponent implements OnInit {
   nomeProduto = ""
   valorProduto = ""
   quantidadeProduto =""
-  tipoProduto = ""
+  tipoProduto = 'Alimento';
+
 
 
 
@@ -33,7 +34,8 @@ export class ProdutosComponent implements OnInit {
       this.nomeProduto = ""
       this. valorProduto = ""
       this.quantidadeProduto =""
-      this.tipoProduto = ""
+      this.tipoProduto = 'Alimento';
+
     } catch (error: any) {
       alert(error.message)
     }

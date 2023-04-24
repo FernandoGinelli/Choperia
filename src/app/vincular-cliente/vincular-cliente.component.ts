@@ -7,43 +7,43 @@ import { Cartao } from 'src/shared/Cartao';
 @Component({
   selector: 'app-vincular-cliente',
   templateUrl: './vincular-cliente.component.html',
-  styleUrls: ['./vincular-cliente.component.css']
+  styleUrls: ['./vincular-cliente.component.css'],
 })
 export class VincularClienteComponent implements OnInit {
-
-
   @Input() cliente!: Clients;
-  userRepo = remult.repo(Clients)
-  cartao = remult.repo(Cartao)
+  userRepo = remult.repo(Clients);
+  cartao = remult.repo(Cartao);
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
+  async addcartao() {
 
+      await this.cartao.insert({
+        cartao_vinculado: this.cliente.cartao_vinculado,
+      });
 
-async addcartao() {
+  }
+
+  async saveUser(cliente: Clients) {
     try {
-      await this.cartao.insert({ cartao_vinculado: this.cliente.cartao_vinculado})
+      await this.addcartao()
 
+      // Se chegar aqui, significa que o cartão foi adicionado com sucesso
+    }catch (error: any) {
+      alert("Cartão em uso")
+      return; // retorna imediatamente, impedindo que o código abaixo seja executado
+    }
+
+    try {
+      await this.userRepo.save(cliente)
+      this.router.navigate(['/cadclient']);
     } catch (error: any) {
       alert(error.message)
     }
   }
 
-async saveUser(cliente: Clients) {
-  try {
-    await this.userRepo.save(cliente)
-    await this.addcartao()
-    this.router.navigate(['/cadclient']);
-  } catch (error: any) {
-    alert(error.message)
-  }
-
-}
 
   ngOnInit(): void {
     this.cliente = history.state.cliente;
   }
-
-
-
 }

@@ -22,7 +22,7 @@ export class RetirarProdutoComponent implements OnInit {
   async addProdutos() {
     try {
       const produtoExistente = this.produtoss.find((produto) => produto.codigoBarras === this.codigoBarras);
-      if (produtoExistente && Number(produtoExistente.quantidadeProduto)  > 0) {
+      if (produtoExistente && Number(produtoExistente.quantidadeProduto)  > 0 && produtoExistente.tipoProduto == "Alimento" ) {
         this.quantidadeProduto = (Number(produtoExistente.quantidadeProduto) -1).toString();
         produtoExistente.quantidadeProduto = this.quantidadeProduto ;
         this.quantidadeProduto =""
@@ -58,11 +58,14 @@ async deleteProdutos(produtos: Produtos) {
 
 ngOnInit() {
 
-  this.produtosRepo.find().then((items) => (this.produtoss = items));
+  this.produtosRepo
+      .find({where:{ tipoProduto:{ $contains:"Alimento" }}})
+      .then((items: Produtos[]) => (this.produtoss = items));
+  }
 }
 
 
-}
+
 
 
 

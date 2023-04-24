@@ -1,1 +1,64 @@
-<p>caixa works!</p>
+<main class="container">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <main class="container">
+    <form *ngIf="cartaoRepo.metadata.apiInsertAllowed" (submit)="addCartao()">
+
+       <input
+        placeholder="Numero do Cartão"
+        [(ngModel)]="numero_cartao"
+        name="numero_cartão"
+      />
+      <button>Add</button>
+
+    </form>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Cartão Vinculado</th>
+            <th>Valor no cartão</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cartao of cartoes">
+            <td>{{ cartao.cartao_vinculado }}</td>
+            <td>{{ cartao.conta }}</td>
+          </tr>
+          <tr>
+            <td><strong>Total:</strong></td>
+<td><strong>{{ total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</strong></td>
+
+          </tr>
+          <tr>
+            <th></th>
+            <th>Valor Pago</th>
+          </tr>
+          <tr>
+            <td style="background-color: aliceblue; opacity: 0;"></td>
+            <td><input placeholder="Valor Pago" [(ngModel)]="valorPago" name="valor_pago"></td>
+
+          </tr>
+          <tr>
+            <th></th>
+            <th>Troco</th>
+          </tr>
+          <tr>
+            <td style="opacity: 0;"></td>
+            <td><input placeholder="Troco" [value]="troco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })" /></td>
+          </tr>
+          <tr>
+            <td></td>
+
+            <td>
+              <button class="btn btn-success" (click)="pagar()">Pagar</button>
+              <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</main>
