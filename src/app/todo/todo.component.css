@@ -3,6 +3,15 @@
     padding: 5px;
   }
   
+  form input {
+    margin-right: 10px; /* Adiciona 10 pixels de espaço à direita do input */
+    padding: 6px;
+  }
+  
+  form button {
+    margin-left: 10px; /* Adiciona 10 pixels de espaço à esquerda do button */
+  }
+  
   
   .form-inline .form-group {
     display: inline-block;
@@ -12,23 +21,25 @@
   .table-container {
     overflow-x: auto;
     height: 50vh;
+    margin-bottom: 2rem;
   }
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 2rem;
     font-size: 0.9rem;
+    border: #000000 solid;
+    
     
   }
-    
-
-  
+   
   .table th,
   .table td {
     padding: 10px;
     text-align: center;
     vertical-align: middle;
     border-right: 1px solid #000000;
+    
   }
    
   .table th {
@@ -40,3 +51,14 @@
   .table td:last-child {
     text-align: center;
   }
+
+  .buttons button {
+    margin-right: 10px; /* Adiciona 10 pixels de espaço à direita do primeiro botão */
+    padding: 10px;
+  }
+  
+  .buttons button:last-child {
+    margin-right: 0; /* Remove a margem à direita do último botão */
+  }
+  
+
