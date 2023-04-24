@@ -19,10 +19,11 @@ import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.co
 import { ChoppComponent } from './chopp/chopp.component';
 import { ReporChoppComponent } from './repor-chopp/repor-chopp.component';
 import { CaixaComponent } from './caixa/caixa.component';
+import { SelfServiceComponent } from './self-service/self-service.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent],
+  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent],
   imports: [ BrowserModule, HttpClientModule, FormsModule, RouterModule, AppRoutingModule],
 
   providers: [],

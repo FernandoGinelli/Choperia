@@ -10,6 +10,7 @@ import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.co
 import { ChoppComponent } from './chopp/chopp.component';
 import { ReporChoppComponent } from './repor-chopp/repor-chopp.component';
 import { CaixaComponent } from './caixa/caixa.component';
+import { SelfServiceComponent } from './self-service/self-service.component';
 
 
 
@@ -26,6 +27,8 @@ const routes: Routes = [
   {path: 'saidachop', component: ChoppComponent},
   {path: 'entrachop', component: ReporChoppComponent},
   {path: 'caixa', component: CaixaComponent},
+  {path: 'self', component: SelfServiceComponent},
+
 
 ];
 

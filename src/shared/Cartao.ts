@@ -15,7 +15,7 @@ export class Cartao{
 
 
   @Fields.number()
-  conta = ""
+  conta= ""
 
 }
 
