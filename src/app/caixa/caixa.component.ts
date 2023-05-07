@@ -28,8 +28,14 @@ async addCartao() {
   const cartao = await this.cartaoRepo.find({
     where:{ cartao_vinculado: this.numero_cartao}});
 
+    var i = 0
+    while (i < cartao[0].produtos.length)
+    {
 
-    this.total += Number(cartao[0].conta)+1;
+      this.total += Number(cartao[0].produtos[i].preco);
+      i++
+    }
+
     this.cartoes.push(cartao[0])
   // limpa o campo após adicionar o cartão
   this.numero_cartao = "";
