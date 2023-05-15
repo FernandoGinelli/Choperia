@@ -45,7 +45,7 @@ export class SelfServiceComponent implements OnInit {
   }
 
   get valorAPagar() {
-    var valorA = Number(this.pesos)*Number(this.multiplicado_self_service)
+    var valorA = Number(this.lastWeight)*Number(this.multiplicado_self_service)
     return valorA
   }
 

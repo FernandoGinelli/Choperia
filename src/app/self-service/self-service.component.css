@@ -1,48 +1,40 @@
-.container {
+.card {
   margin: 0 auto;
-  padding: 5px;
+  width: 45%;
+  height: 20vh;
+  font-size: 60px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-
-.form-inline .form-group {
-  display: inline-block;
+.card-left {
+  float: left;
   margin-right: 10px;
 }
 
-.table-container {
-  overflow-x: auto;
-  height: 50vh;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-
+.card-right {
+  float: right;
+  margin-left: 10px;
 }
 
-
-.table th,
-.table td {
-  padding: 6px;
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid #000000;
+.card-title {
+  font-size: 32px;
 }
 
-.table th {
-  font-weight: bold;
-  background-color: #191a1b;
-  color: #fff;
+.card-subtitle {
+  font-size: 28px;
 }
 
-.table td:last-child {
-  text-align: center;
+.form-group{
+  margin-top: 5%;
 }
 
-@media (max-width: 768px) {
-  .form-inline .form-group {
-    display: block;
-    margin-right: 0;
-  }
+.form-group input{
+  width: 50%;
+  font-size: 28px;
+}
+
+.form-group label{
+  font-size: 15px;
 }

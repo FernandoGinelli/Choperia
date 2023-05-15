@@ -20,6 +20,7 @@ input{
   height: 50vh;
   border: 1px solid #040303;
   background-color: #fff;
+  overflow-x: auto;
 }
 
 table {
@@ -27,16 +28,18 @@ table {
   border-collapse: collapse;
   text-align: left;
 }
-
+.table tbody {
+  max-height: 100%;
+  overflow-y: scroll;
+}
 
 td{
   padding: 10px;
-  background-color: rgb(192, 192, 228);
   color: #000000;
 }
 th {
-  padding: 10px;
-  border: 1px solid #040303;
+  padding: 20px;
+  border: 1px solid #ffffff;
   background-color: rgb(24, 24, 156);
   color: #fff;
 

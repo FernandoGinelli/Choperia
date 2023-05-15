@@ -46,6 +46,9 @@ async addCartao() {
 valorPago: number = 0;
 
 get troco() {
+  if (this.valorPago - this.total<0) {
+    return 0
+  }
   return this.valorPago - this.total;
 }
 

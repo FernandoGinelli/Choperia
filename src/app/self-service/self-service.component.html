@@ -1,29 +1,26 @@
+
 <main class="container">
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  </head>
-  <main class="container">
-    <form *ngIf="cartaoRepo.metadata.apiInsertAllowed" (submit)="adicionarValor()">
-
-       <input
-        placeholder="Peso"
-        [value]="pesos"
-        name="lastWeight"
-
-      />
-      <input
-        placeholder="Valor à Pagar"
-        [value]="valorAPagar"
-        name="valorAPagar"
-      />
-      <input
-        placeholder="Numero do Cartão"
-        [(ngModel)]="numero_cartao"
-        name="numero_cartão"
-      />
-      <button>Add</button>
-
-    </form>
-
-  </main>
+  <h1>Pesagem de Self-Service</h1>
+  <form *ngIf="cartaoRepo.metadata.apiInsertAllowed" (submit)="adicionarValor()">
+    <div class="form-group">
+      <div class="card card-left">
+        <div class="card-body">
+          <h5 class="card-title">Peso (em kg)</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ lastWeight }}</h6>
+        </div>
+      </div>
+      <div class="card card-right">
+        <div class="card-body">
+          <h5 class="card-title">Valor da Pesagem</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ valorAPagar }}</h6>
+        </div>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+    <div class="form-group">
+      <label for="numero_cartao">Numero do Cartão:</label>
+      <input type="text" class="form-control" id="numero_cartao" [(ngModel)]="numero_cartao" name="numero_cartao" required>
+    </div>
+    <button type="submit" class="btn btn-success">Adicionar</button>
+  </form>
 </main>
