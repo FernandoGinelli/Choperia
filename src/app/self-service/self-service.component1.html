@@ -1,0 +1,29 @@
+<main class="container">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <main class="container">
+    <form *ngIf="cartaoRepo.metadata.apiInsertAllowed" (submit)="adicionarValor()">
+
+       <input
+        placeholder="Peso"
+        [value]="pesos"
+        name="lastWeight"
+
+      />
+      <input
+        placeholder="Valor à Pagar"
+        [value]="valorAPagar"
+        name="valorAPagar"
+      />
+      <input
+        placeholder="Numero do Cartão"
+        [(ngModel)]="numero_cartao"
+        name="numero_cartão"
+      />
+      <button>Add</button>
+
+    </form>
+
+  </main>
+</main>

@@ -20,10 +20,11 @@ import { ChoppComponent } from './chopp/chopp.component';
 import { ReporChoppComponent } from './repor-chopp/repor-chopp.component';
 import { CaixaComponent } from './caixa/caixa.component';
 import { SelfServiceComponent } from './self-service/self-service.component';
+import { EditProdComponent } from './edit-prod/edit-prod.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent],
+  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent],
   imports: [ BrowserModule, HttpClientModule, FormsModule, RouterModule, AppRoutingModule],
 
   providers: [],

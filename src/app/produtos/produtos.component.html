@@ -55,7 +55,7 @@
         <td>{{ produto.tipoProduto }}</td>
         <td>
           <button (click)="gerarPDF(produto.codigoBarras)" class="btn btn-secondary btn-sm mr-2">Imprimir Código de barras</button>
-          <button *ngIf="produtosRepo.metadata.apiUpdateAllowed" (click)="saveProdutos(produto)" class="btnbtn-primary btn-sm mr-2">Editar</button>
+          <button *ngIf="produtosRepo.metadata.apiUpdateAllowed" (click)="navegarParaEditar(produto)" class="btnbtn-primary btn-sm mr-2">Editar</button>
           <button *ngIf="produtosRepo.metadata.apiDeleteAllowed" (click)="deleteProdutos(produto)" class="btn btn-danger btn-sm">Deletar</button>
         </td>
       </tr>

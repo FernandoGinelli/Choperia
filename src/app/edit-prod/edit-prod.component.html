@@ -1,0 +1,28 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<div>
+  <h1>Editar Produto</h1>
+  <main class="container">
+    <div class="table-container" style="display: grid;"><label>Nome:</label>
+      <input [(ngModel)]="cliente.nomeProduto"  />
+      <label>Valor:</label>
+      <input [(ngModel)]="cliente.valorProduto"  />
+      <label>Quantidade:</label>
+      <input [(ngModel)]="cliente.quantidadeProduto"  />
+
+      <label for="tipoProduto" class="control-label">Tipo do Produto:</label>
+        <select class="form-control" id="tipoProduto" [(ngModel)]="cliente.tipoProduto" name="tipoProduto">
+          <option value="Alimento">Selecione uma opção</option>
+          <option value="Bebida">Bebida</option>
+          <option value="Alimento">Alimento</option>
+        </select>
+      <button
+        *ngIf="userRepo.metadata.apiUpdateAllowed"
+        (click)="saveProdutos(cliente)"
+      >
+        Salvar
+      </button>
+    </div>
+  </main>
+</div>

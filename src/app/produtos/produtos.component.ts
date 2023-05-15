@@ -4,6 +4,7 @@ import { Produtos } from 'src/shared/Produtos';
 import JsBarcode from 'jsbarcode';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class ProdutosComponent implements OnInit {
   produtosRepo = remult.repo(Produtos)
   produtoss: Produtos[] = []
   @ViewChild('divCodigoBarras') divCodigoBarras!: any;
+  constructor(private router: Router) { }
+
 
   codigoBarras = ""
   nomeProduto = ""
@@ -104,6 +107,10 @@ gerarPDF = async (codigoBarras: string) => {
 
    mywindow!.print();
 
+}
+
+navegarParaEditar(cliente: Produtos) {
+  this.router.navigate(['/editar'], { state: { cliente } });
 }
 
 ngOnInit() {
