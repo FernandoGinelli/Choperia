@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { remult } from 'remult';
-import { async } from 'rxjs';
+import { async, timer } from 'rxjs';
 import { Cartao } from 'src/shared/Cartao';
 import { Clients } from 'src/shared/Clients';
 import { PesoService } from './peso.service';
@@ -67,6 +67,14 @@ export class SelfServiceComponent implements OnInit {
     }
   }
 
+  atualiza_peso(){
+    //this.pesoService.getLastWeight().subscribe(lastWeight => {      this.lastWeight = lastWeight;    });
+    //this.lastWeight+=0.1
+
+    timer(100).subscribe(() => {
+      this.atualiza_peso()
+    });
+  }
   async adicionarValor(){
 
     const cartao = await this.cartaoRepo.find({
@@ -85,9 +93,8 @@ export class SelfServiceComponent implements OnInit {
   }
   cancelar() {}
   ngOnInit() {
-    this.pesoService.getLastWeight().subscribe(lastWeight => {
-      this.lastWeight = lastWeight;
-    });
+    this.atualiza_peso()
+
     this.cartoes = [];
 
     this.userRepo.find().then((items) => (this.user = items));

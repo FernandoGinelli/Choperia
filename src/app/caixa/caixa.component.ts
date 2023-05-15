@@ -70,14 +70,15 @@ async deleteProdutos() {
   while (i< this.cartoes.length) {
     while (j< this.user.length) {
       if (this.user[j].cartao_vinculado === this.cartoes[i].cartao_vinculado) {
-        this.user[j].cartao_vinculado= ""
+        //this.user[j].cartao_vinculado = ""
+        this.cartoes[i].produtos = []
         var user = this.user[j]
         this.saveUser(user)
       }
       j++
     }
     j = 0
-    await this.cartaoRepo.delete(this.cartoes[i]);
+    //await this.cartaoRepo.delete(this.cartoes[i]);
     i++
   }
 
