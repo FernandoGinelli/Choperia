@@ -1,6 +1,8 @@
 
 <main class="container">
   <h1 class="mt-3">Cadastro de Usuários</h1>
+
+
   <form  (submit)="addUser()" class="row">
 
   <div class="col-sm-4">
@@ -42,6 +44,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
+
       <td><input [(ngModel)]="user.name" ></td>
       <td><input [(ngModel)]="user.password" type="password" /></td>
       <td>
@@ -52,11 +55,14 @@
         </select>
       </td>
       <td>
-        <button class="btn-primary" *ngIf="userRepo.metadata.apiUpdateAllowed" (click)="saveUser(user)">Salvar</button>
+        <button class="btn-primary"  (click)="abriModal(user)">Editar</button>
         <button class="btn-danger" *ngIf="userRepo.metadata.apiDeleteAllowed" (click)="deleteUser(user)">Deletar</button>
+
+
       </td>
     </tr>
   </tbody>
 </table>
+
 </div>
 </main>

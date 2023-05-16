@@ -1,0 +1,15 @@
+
+
+  <div class="modal-body"  >
+    <span class="close" (click)="activeModal.dismiss()">&times;</span>
+
+    <h2>Editar Usuário</h2>
+    <label for="edit-nome">Nome:</label>
+    <input type="text" id="edit-nome" [(ngModel)]="user.name" />
+    <label for="edit-role">Função:</label>
+    <input type="text" id="edit-role" [(ngModel)]="user.roles" />
+    <label for="edit-senha">Senha:</label>
+    <input type="password" id="edit-senha" [(ngModel)]="user.password" />
+    <button (click)="saveUser(user)">Salvar</button>
+  </div>
+

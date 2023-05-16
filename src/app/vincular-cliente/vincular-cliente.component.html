@@ -5,13 +5,13 @@
   <h1>Vincular rfid</h1>
   <main class="container">
     <div class="table-container" style="display: grid;"><label>Nome:</label>
-      <input [(ngModel)]="cliente.name" [readonly]="true" />
+      <input [(ngModel)]="cliente.name" [readonly]="false" />
       <label>Email:</label>
-      <input [(ngModel)]="cliente.email" [readonly]="true" />
-      <label>CPF:</label> 
-      <input [(ngModel)]="cliente.cpf" [readonly]="true" />
+      <input [(ngModel)]="cliente.email" [readonly]="false" />
+      <label>CPF:</label>
+      <input [(ngModel)]="cliente.cpf" [readonly]="false" />
       <label>Telefone:</label>
-      <input [(ngModel)]="cliente.telefone" [readonly]="true" />
+      <input [(ngModel)]="cliente.telefone" [readonly]="false" />
 
       <label>Cartão RFID:</label>
       <input [(ngModel)]="cliente.cartao_vinculado" />

@@ -12,21 +12,21 @@
     background-color: #212121;
     color: #030303;
   }
-  
+
   nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
+
   nav li {
     padding: 15px 25px;
   }
-  
+
   nav li:last-child {
     border-bottom: none;
   }
-  
+
   nav li {
     color: #fff;
     text-decoration: none;
@@ -34,9 +34,8 @@
     transition: all 0.3s ease;
     cursor: pointer;
   }
-  
+
   nav li:hover {
     background-color: rgba(219, 219, 255, 0.877);
     color: black;
   }
- 

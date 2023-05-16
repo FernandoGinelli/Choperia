@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { remult } from 'remult';
 import { Cartao } from 'src/shared/Cartao';
 import { Clients } from 'src/shared/Clients';
+import { Produtos } from 'src/shared/Produtos';
 import { User } from 'src/shared/Users';
 
 @Component({
@@ -78,6 +79,7 @@ async deleteProdutos() {
       j++
     }
     j = 0
+    await this.cartaoRepo.save(this.cartoes[i]);
     //await this.cartaoRepo.delete(this.cartoes[i]);
     i++
   }

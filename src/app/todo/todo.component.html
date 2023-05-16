@@ -16,6 +16,8 @@
       <tbody>
         <tr *ngFor="let task of tasks">
           <td>
+            <cli-buttontype-ok>ok</cli-buttontype-ok>
+
             <input type="checkbox" [(ngModel)]="task.completed" (change)="saveTask(task)" />
           </td>
           <td>

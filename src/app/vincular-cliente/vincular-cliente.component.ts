@@ -13,20 +13,29 @@ export class VincularClienteComponent implements OnInit {
   @Input() cliente!: Clients;
   userRepo = remult.repo(Clients);
   cartao = remult.repo(Cartao);
+  auxC = "";
 
   constructor(private router: Router) {}
 
-  async addcartao() {
+  async addcartao(cartao: Cartao) {
 
       await this.cartao.insert({
-        cartao_vinculado: this.cliente.cartao_vinculado,
+        cartao_vinculado: this.cliente.cartao_vinculado,produtos: cartao.produtos
       });
+      this.cartao.delete(cartao)
 
   }
 
   async saveUser(cliente: Clients) {
     try {
-      await this.addcartao()
+      if (this.cliente.cartao_vinculado == this.auxC) {
+      }else{
+        const cartao = await this.cartao.find({
+          where:{ cartao_vinculado: this.auxC}});
+
+        await this.addcartao(cartao[0])
+      }
+
 
       // Se chegar aqui, significa que o cartão foi adicionado com sucesso
     }catch (error: any) {
@@ -45,5 +54,6 @@ export class VincularClienteComponent implements OnInit {
 
   ngOnInit(): void {
     this.cliente = history.state.cliente;
+    this.auxC = this.cliente.cartao_vinculado
   }
 }

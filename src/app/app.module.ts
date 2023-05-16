@@ -22,10 +22,12 @@ import { CaixaComponent } from './caixa/caixa.component';
 import { SelfServiceComponent } from './self-service/self-service.component';
 import { EditProdComponent } from './edit-prod/edit-prod.component';
 import { AcessoComponent } from './acesso/acesso.component';
+import { ButtontypeOkComponent } from "./components/buttontype-ok/buttontype-ok.component";
+import { EditarComponent } from './cadastro-usuario/editar/editar.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent],
+  declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent],
   imports: [ BrowserModule, HttpClientModule, FormsModule, RouterModule, AppRoutingModule],
 
   providers: [],

@@ -1,0 +1,60 @@
+:host,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+  text-decoration: none;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+:host,
+:not(span, a, ul, ol, li, p) {
+  display: flex;
+}
+
+ul,
+ol {
+  text-indent: 0;
+  padding-inline-start: 1.5em;
+}
+
+p:empty::before {
+  content: '';
+  display: inline-block;
+}
+
+img {
+  object-fit: contain;
+}
+
+svg {
+  overflow: visible;
+}
+
+:host {
+  width: 100px;
+  height: 100px;
+  place-content: center;
+  align-items: center;
+  padding: 0 0 0 29px;
+  border-radius: 18px;
+  background-color: #0003;
+  background-image: linear-gradient(180deg, #00bd40ff 9%, #3cf41eab 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  overflow: hidden;
+}
+.mdiCheckCircleOutline {
+  width: 20px;
+  height: 20px;
+}
+.icon {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
