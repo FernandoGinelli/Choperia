@@ -1,15 +1,37 @@
 
 
-  <div class="modal-body"  >
+  <div class="modal-content"  >
     <span class="close" (click)="activeModal.dismiss()">&times;</span>
 
     <h2>Editar Usuário</h2>
-    <label for="edit-nome">Nome:</label>
-    <input type="text" id="edit-nome" [(ngModel)]="user.name" />
-    <label for="edit-role">Função:</label>
-    <input type="text" id="edit-role" [(ngModel)]="user.roles" />
-    <label for="edit-senha">Senha:</label>
-    <input type="password" id="edit-senha" [(ngModel)]="user.password" />
-    <button (click)="saveUser(user)">Salvar</button>
+    <div>
+    <form  (submit)="saveUser(user)" class="row" style="height: auto;">
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" class="form-control" id="nome" [(ngModel)]="user.name" name="nome" placeholder="Nome">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input type="password" class="form-control" id="senha" [(ngModel)]="user.password" name="senha" placeholder="Senha">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="role">Role:</label>
+          <select class="form-control" id="role" [(ngModel)]="user.roles" name="role" required>
+            <option value="">Selecione a Role</option>
+            <option value="admin">Administrador</option>
+            <option value="fisSelf">FisSelf</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      </form></div>
   </div>
 

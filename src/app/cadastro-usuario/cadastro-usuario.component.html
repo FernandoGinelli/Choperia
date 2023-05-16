@@ -45,8 +45,12 @@
   <tbody>
     <tr *ngFor="let user of users">
 
-      <td><input [(ngModel)]="user.name" ></td>
-      <td><input [(ngModel)]="user.password" type="password" /></td>
+      <td>{{user.name}}</td>
+      <td>
+        <ng-container *ngIf="user.password">
+          <input type="password" [value]="user.password" disabled>
+        </ng-container>
+      </td>
       <td>
         <select [(ngModel)]="user.roles">
           <option value="">Selecione a Role</option>

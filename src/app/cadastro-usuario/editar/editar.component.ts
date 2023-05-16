@@ -14,6 +14,7 @@ export class EditarComponent {
   userRepo = remult.repo(User);
   constructor(public activeModal: NgbActiveModal) {}
 
+  role = ""
 
   async saveUser(user: User) {
     try {
