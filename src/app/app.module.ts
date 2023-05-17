@@ -26,9 +26,10 @@ import { ButtontypeOkComponent } from "./components/buttontype-ok/buttontype-ok.
 import { EditarComponent } from './cadastro-usuario/editar/editar.component';
 
 
+
 @NgModule({
   declarations: [AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent],
-  imports: [ BrowserModule, HttpClientModule, FormsModule, RouterModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, RouterModule, AppRoutingModule],
 
   providers: [],
 
