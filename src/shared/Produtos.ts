@@ -27,6 +27,10 @@ export class Produtos {
 
   @Fields.string()
   tipoProduto = ""
+
+  @Fields.integer()
+  consumidoXVezes = 0
+
 }
 
 

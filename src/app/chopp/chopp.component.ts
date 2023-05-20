@@ -38,6 +38,7 @@ export class ChoppComponent implements OnInit {
         this.quantidadeProduto = (
           Number(produtoExistente.quantidadeProduto) - 500
         ).toString();
+        produtoExistente.consumidoXVezes = produtoExistente.consumidoXVezes+1
         this.mostrarListaProdutos = true;
         this.mostrarCamposCartao = false;
         produtoExistente.quantidadeProduto = this.quantidadeProduto;
