@@ -1,26 +1,24 @@
-<form (submit)="verificaAcesso()"><div>
-  <h1>Verificar Acesso</h1>
-  <main class="container">
-    <div class="table-container" style="display: grid;">
-      <label>Cartão:</label>
-      <input placeholder="Numero do Cartão"
-      [(ngModel)]="numero_cartao"
-      name="numero_cartão"/>
+<form (submit)="verificaAcesso()">
+  <div>
+    <h1>Verificar Acesso</h1>
+    <main class="container">
+      <div class="table-container" style="display: grid; justify-content: center; align-items: center;">
+        <label>Cartão:</label>
+        <input placeholder="Número do Cartão" [(ngModel)]="numero_cartao" name="numero_cartão" />
 
-      <button  class="btn btn-primary">
-        OK
-      </button>
-    </div>
-    <div *ngIf="!espera">
-      <div *ngIf="total==0" style="background-color: blue;  height: 300;" >
-          <h1>Autorizado</h1>
+        <button class="btn btn-primary">
+          OK
+        </button>
       </div>
-      <div *ngIf ="total>0" style="background-color: red;">
+      <div *ngIf="!espera">
+        <div *ngIf="total == 0" style="background-color: rgb(2, 122, 8); height: 300; display: flex; justify-content: center; align-items: center;">
+          <h1>Autorizado</h1>
+        </div>
+        <div *ngIf="total > 0" style="background-color: red; height: 300; display: flex; flex-direction: column; justify-content: center; align-items: center;">
           <h1>Bloqueado</h1>
           <div><strong>Debito: {{ total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</strong></div>
-
+        </div>
       </div>
-    </div>
-  </main>
-</div>
+    </main>
+  </div>
 </form>

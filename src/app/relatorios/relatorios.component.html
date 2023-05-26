@@ -1,10 +1,9 @@
-<DIv style="display: grid; ">
-<button style="margin: 30px;" (click)="gerarRelatorio()">Gerar Relatório estoque</button>
-<button style="margin: 30px;" (click)="gerarRelatorioFalta()">Gerar Relatório de produtos com baixo estoque</button>
-<button style="margin: 30px;" (click)="gerarRelatorioChopp()">Gerar Relatório de produtos com baixo estoque</button>
-<button style="margin: 30px;" (click)="gerarRelatorio()">Gerar Relatório estoque</button>
-<button style="margin: 30px;" (click)="gerarRelatorioFalta()">Gerar Relatório de produtos com baixo estoque</button>
-<button style="margin: 30px;" (click)="gerarRelatorioChopp()">Gerar Relatório de produtos com baixo estoque</button>
-
-
-</DIv>
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, auto); gap: 10px;">
+    <button class="custom-button" (click)="gerarRelatorio()">Gerar Relatório estoque</button>
+    <button class="custom-button" (click)="gerarRelatorioFalta()">Gerar Relatório de produtos com baixo estoque</button>
+    <button class="custom-button" (click)="gerarRelatorioChopp()">Gerar Relatório de Chopp Mais Vendido</button>
+    <button class="custom-button" (click)="gerarRelatorio()">botao</button>
+    <button class="custom-button" (click)="gerarRelatorioFalta()">botao</button>
+    <button class="custom-button" (click)="gerarRelatorioChopp()">botao</button>
+  </div>
+  

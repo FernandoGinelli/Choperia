@@ -1,0 +1,53 @@
+form {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  form input {
+    margin-bottom: 10px;
+    margin-right: 10px; /* Adiciona espaçamento entre os inputs */
+    padding: 5px;
+  }
+  
+  form button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px; /* Adiciona espaçamento entre o input e o botão */
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #d3de10;
+    text-transform: uppercase;
+  }
+
+
+  .table-container {
+    height: 60vh;
+  }
+
+  .card {
+    height: 300px;
+    width: 250px;
+    background-color: transparent;
+    background-image: url("https://assets.stickpng.com/images/5a00d0860e8525eec2752fd5.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 30%;
+    color: #ebe5db;
+  }
+ 
+  .card-body {
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 28%;
+  }

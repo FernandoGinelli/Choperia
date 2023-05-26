@@ -1,40 +1,47 @@
-
 <main class="container">
-  <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()" class ="form-inline" >
-
-     <input id="meuCampo"
-      placeholder="codigo de Barras"
-      [(ngModel)]="codigoBarras"
-      name="codigoBarras"
-      autofocus
-    />
-<button>Add</button>
-
-</form>
-
-
-
+   <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()" class="form-inline">
+ 
+     <div class="form-group">
+       <input id="meuCampo" class="form-control"
+         placeholder="Código de Barras"
+         [(ngModel)]="codigoBarras"
+         name="codigoBarras"
+         autofocus
+       />
+     </div>
+     <div class="form-group">
+       <input class="form-control" type="number" min="1" [(ngModel)]="quantidadeProduto" name="quantidadeProduto"
+         placeholder="Quantidade" required>
+     </div>
+     <button class="btn btn-primary">Retirar</button>
+ 
+   </form>
+ 
    <div class="table-container">
-      <table class="table">
-         <thead>
-            <tr>
-              <th>Código de Barras</th>
-              <th>Nome do Produto</th>
-              <th>Valor do Produto</th>
-              <th>Quantidade do Produto</th>
-              <th>Tipo do Produto</th>
-            </tr>
-            </thead>
-   <tbody>   
-   <tr *ngFor="let produtos of produtoss">
-         
-   <td><input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly /></td>
-   <td><input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-   <td><input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-   <td><input [(ngModel)]="produtos.quantidadeProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-   <td><input [(ngModel)]="produtos.tipoProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-   </tr>
-</tbody>
-      </table>
-</div>
-</main>
+     <table class="table">
+       <thead>
+         <tr>
+           <th>Código de Barras</th>
+           <th>Nome do Produto</th>
+           <th>Valor do Produto</th>
+           <th>Quantidade do Produto</th>
+           <th>Tipo do Produto</th>
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let produto of produtoss">
+ 
+           <td>{{ produto.codigoBarras }}</td>
+           <td>{{ produto.nomeProduto }}</td>
+           <td>{{ produto.valorProduto }}</td>
+           <td>
+             <input class="form-control" type="number" [(ngModel)]="produto.quantidadeProduto"
+               [ngModelOptions]="{ standalone: true }" readonly />
+           </td>
+           <td>{{ produto.tipoProduto }}</td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </main>
+ 

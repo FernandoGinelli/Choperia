@@ -100,7 +100,11 @@ async saveUser(user: Clients) {
   }
 }
 
-cancelar(){}
+cancelar(){
+  this.cartoes = []
+  this.total =0
+  this.valorPago =0
+}
 ngOnInit() {
   this.cartoes = []
   this.total =0

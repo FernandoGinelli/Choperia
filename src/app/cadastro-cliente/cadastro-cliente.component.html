@@ -1,5 +1,9 @@
 <div >
-  <h1>Gerenciar cliente</h1>
+  <div class="card">
+    <div class="card-header">
+      <h1 class="card-title">Cadastro de Clientes</h1>
+    </div>
+
   <div class="row">
     <div class="col">
       <form (submit)="addUser()" class="form-group">
@@ -27,8 +31,10 @@
       </form>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
+      <div class="table-header">
       <table class="table table-striped">
         <thead>
           <tr>
@@ -40,6 +46,10 @@
             <th></th>
           </tr>
         </thead>
+        </table>
+      </div>
+      <div class="table-container">
+        <table class="table">
         <tbody>
           <tr *ngFor="let user of users">
             <td>{{ user.name }}</td>

@@ -30,7 +30,7 @@ export class RelatoriosComponent implements OnInit {
 
     this.criarTabela(doc, this.produtosB, 50);
 
-    doc.save('relatorio.pdf');
+    doc.save('Estoque.pdf');
   }
 
   criarTabelaRanking(doc: jsPDF, produtos: any[], startY: number) {
@@ -104,7 +104,7 @@ export class RelatoriosComponent implements OnInit {
 
     this.criarTabela(doc, this.produtosFaltaB, 50);
 
-    doc.save('relatorio.pdf');
+    doc.save('FaltaCozinha.pdf');
   }
 
   gerarRelatorioChopp() {
@@ -114,7 +114,7 @@ export class RelatoriosComponent implements OnInit {
 
     this.criarTabelaRanking(doc, this.produtosB, 40);
 
-    doc.save('relatorio.pdf');
+    doc.save('ChoppMaisVendido.pdf');
   }
 
   ngOnInit(): void {

@@ -1,25 +1,25 @@
-<h1>Retirar Chop</h1>
+<h1>CHOPP</h1>
 <main>
-  <form *ngIf="produtosRepo.metadata.apiInsertAllowed && mostrarCamposCartao" (submit)="addProdutos()"  >
-
-     <input
-      placeholder="Numero do cartão"
-      [(ngModel)]="numero_cartao"
-      name="numero_cartao"
-    />
-<button>Retirar</button>
-
-</form>
-<div *ngIf="mostrarListaProdutos" >
-  <div *ngFor="let produtos of produtoss" class="lista" >
-
-
-    <input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly />
-    <input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly />
-    <input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly />
-    <input [(ngModel)]="produtos.quantidadeProduto" [ngModelOptions]="{ standalone: true }" readonly />
-    <input [(ngModel)]="produtos.tipoProduto" [ngModelOptions]="{ standalone: true }" readonly />
-    <button *ngIf="userRepo.metadata.apiDeleteAllowed"  class="btn btn-secondary"  (click)="escolher(produtos)">Escolher</button>
-
+ <form class="highlight" *ngIf="mostrarCamposCartao" (submit)="addProdutos()">
+  <input placeholder="Numero do cartão" *[(ngModel)]="numero_cartao" name="numero_cartao" />
+  <button class="btn btn-primary">Retirar</button>
+  </form>
+  <div class="table">
+    <div class="table-container">
+      <div *ngIf="mostrarListaProdutos">
+        <div class="row">
+          <div class="col-md-3 mb-3" *ngFor="let produto of produtoss">
+            <div class="card text-center">
+              <div class="card-body">
+                <h4 class="card-title font-weight-bold display-4">{{ produto.nomeProduto }}</h4>
+                <p class="card-text font-weight-bold">Valor: R$ {{ produto.valorProduto }}</p>
+                <p class="card-text font-weight-bold">Quantidade: {{ produto.quantidadeProduto }}</p>
+                <button *ngIf="userRepo.metadata.apiDeleteAllowed" class="btn btn-success" (click)="escolher(produto)">Escolher</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</main>

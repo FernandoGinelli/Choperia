@@ -1,21 +1,24 @@
 <main class="container">
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<main class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1 class="card-title">Adicionar Produtos</h1>
+    </div>
   <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
-
-     <input
-      placeholder="codigo de Barras"
-      [(ngModel)]="codigoBarras"
-      name="codigoBarras"
-    />
-<button>Add</button>
-
-</form>
-<div class="table-container">
-  <table class="table">
-     <thead>
+    <div class="form-group">
+       <input
+        type="text"
+        class="form-control"
+        id="codigoBarras"
+        placeholder="Código de Barras"
+        [(ngModel)]="codigoBarras"
+        name="codigoBarras"
+      />
+    </div>
+    <button class="btn btn-primary">Adicionar</button>
+  </form>
+  <div class="table-container">
+    <table class="table">
+      <thead>
         <tr>
           <th>Código de Barras</th>
           <th>Nome do Produto</th>
@@ -23,17 +26,23 @@
           <th>Quantidade do Produto</th>
           <th>Tipo do Produto</th>
         </tr>
-        </thead>
-<tbody>   
-<tr *ngFor="let produtos of produtoss">
-     
-<td><input [(ngModel)]="produtos.codigoBarras" [ngModelOptions]="{ standalone: true }" readonly /></td>
-<td><input [(ngModel)]="produtos.nomeProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-<td><input [(ngModel)]="produtos.valorProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-<td><input [(ngModel)]="produtos.quantidadeProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-<td><input [(ngModel)]="produtos.tipoProduto" [ngModelOptions]="{ standalone: true }" readonly /></td>
-</tr>
-</tbody>
-  </table>
-</div>
-</main>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtoss">
+          <td>{{ produto.codigoBarras }}</td>
+          <td>{{ produto.nomeProduto }}</td>
+          <td>{{ produto.valorProduto }}</td>
+          <td>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="produto.quantidadeProduto"
+              [ngModelOptions]="{ standalone: true }"
+            />
+          </td>
+          <td>{{ produto.tipoProduto }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

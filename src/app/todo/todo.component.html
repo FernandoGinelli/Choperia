@@ -1,38 +1,65 @@
-
 <main class="container">
-  <form *ngIf="taskRepo.metadata.apiInsertAllowed" (submit)="addTask()">
-    <input placeholder="Oque tem que ser feito?" [(ngModel)]="newTaskTitle" name="newTaskTitle" />
-    <button>Add</button>
-  </form>
-  <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Concluído</th>
-          <th scope="col">Título</th>
-          <th scope="col">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let task of tasks">
-          <td>
-            <cli-buttontype-ok>ok</cli-buttontype-ok>
-
-            <input type="checkbox" [(ngModel)]="task.completed" (change)="saveTask(task)" />
-          </td>
-          <td>
-            <input [(ngModel)]="task.title" />
-          </td>
-          <td>
-            <button *ngIf="taskRepo.metadata.apiUpdateAllowed" (click)="saveTask(task)">Salvar</button>
-            <button *ngIf="taskRepo.metadata.apiDeleteAllowed" (click)="deleteTask(task)">Deletar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div>
-      <button (click)="setAllCompleted(true)">Marcar tudo como Completo</button>
-      <button (click)="setAllCompleted(false)">Marcar tudo como Incompleto</button>
+  <div>
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Lista de Tarefas</h5>
+      </div>
+      <div class="card-body">
+        <form *ngIf="taskRepo.metadata.apiInsertAllowed" (submit)="addTask()">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="O que tem que ser feito?"
+              [(ngModel)]="newTaskTitle"
+              name="newTaskTitle"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-primary">Add</button>
+            </div>
+          </div>
+        </form>
+        <div class="table-header">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Concluído</th>
+                <th scope="col">Título</th>
+                <th scope="col">Ações</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        
+        <div class="table-container">
+          <table class="table">
+            <tbody>
+              <tr *ngFor="let task of tasks">
+                <td>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" [(ngModel)]="task.completed" (change)="saveTask(task)" />
+                  </div>
+                </td>
+                <td>
+                  <input class="form-control" [(ngModel)]="task.title" />
+                </td>
+                <td>
+                  <button *ngIf="taskRepo.metadata.apiUpdateAllowed" class="btn btn-primary" (click)="saveTask(task)">Salvar</button>
+                  <button *ngIf="taskRepo.metadata.apiDeleteAllowed" class="btn btn-danger" (click)="deleteTask(task)">Deletar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+      </div>
+      <div class="card-footer">
+        <div class="text-center">
+          <button class="btn btn-success mr-2" (click)="setAllCompleted(true)">Marcar tudo como Completo</button>
+          <button class="btn btn-warning" (click)="setAllCompleted(false)">Marcar tudo como Incompleto</button>
+        </div>
+      </div>
     </div>
   </div>
 </main>

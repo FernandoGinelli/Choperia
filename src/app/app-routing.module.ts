@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
-import { ProdutosComponent } from './produtos/produtos.component';
-import { TodoComponent } from './todo/todo.component';
-import { RetirarProdutoComponent } from './retirar-produto/retirar-produto.component';
-import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto.component';
-import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.component';
-import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
-import { ChoppComponent } from './chopp/chopp.component';
-import { ReporChoppComponent } from './repor-chopp/repor-chopp.component';
-import { CaixaComponent } from './caixa/caixa.component';
-import { SelfServiceComponent } from './self-service/self-service.component';
-import { EditProdComponent } from './edit-prod/edit-prod.component';
+import { RouterModule, Routes } from '@angular/router';
 import { AcessoComponent } from './acesso/acesso.component';
+import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto.component';
+import { CadastroClienteComponent } from './cadastro-cliente/cadastro-cliente.component';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { CaixaComponent } from './caixa/caixa.component';
+import { ChoppComponent } from './chopp/chopp.component';
+import { EditProdComponent } from './edit-prod/edit-prod.component';
+import { ProdutosComponent } from './produtos/produtos.component';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
-
-
+import { ReporChoppComponent } from './repor-chopp/repor-chopp.component';
+import { RetirarProdutoComponent } from './retirar-produto/retirar-produto.component';
+import { SelfServiceComponent } from './self-service/self-service.component';
+import { TodoComponent } from './todo/todo.component';
+import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

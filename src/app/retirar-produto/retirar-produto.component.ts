@@ -16,7 +16,7 @@ export class RetirarProdutoComponent implements OnInit {
   codigoBarras = ""
   nomeProduto = ""
   valorProduto = ""
-  quantidadeProduto =""
+  quantidadeProduto = ""
   tipoProduto = ""
 
   async addProdutos() {

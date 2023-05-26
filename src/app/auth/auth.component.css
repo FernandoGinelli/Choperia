@@ -59,9 +59,9 @@ form h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(10, 10, 43);
+    background-color: rgb(16, 16, 16);
     color: #fff;
-    border-bottom: 1px solid #9eafd4;
+    border-bottom: 1px solid #f6ff00;
     padding: 15px;
   }
   
