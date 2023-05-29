@@ -29,7 +29,7 @@ export class Clients{
 
 
   @Fields.object()
-  produtos: Compra[] = [];
+  compras: Compra[] = [];
 
 
 
@@ -42,8 +42,8 @@ class Compra {
   @Fields.uuid()
   id!: string
 
-  @Fields.date()
-  data!: string;
+  @Fields.object()
+  data!: Data;
 
   @Fields.object()
   produtos: Produto[] = [];
@@ -52,6 +52,19 @@ class Compra {
 }
 
 
+
+class Data {
+  @Fields.string()
+  dia: string = '';
+
+  @Fields.string()
+  mes: string = '';
+
+  @Fields.string()
+  ano: string = '';
+
+
+}
 
 class Produto {
   @Fields.string()
@@ -62,6 +75,9 @@ class Produto {
 
   @Fields.number()
   preco!: number;
+
+  @Fields.number()
+  quantidade!: number;
 
 
 }
