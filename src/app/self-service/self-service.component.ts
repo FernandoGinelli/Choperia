@@ -61,7 +61,7 @@ export class SelfServiceComponent implements OnInit {
 
   async saveCartao(user: Cartao) {
     try {
-      await this.userRepo.save(user);
+      await this.cartaoRepo.save(user);
     } catch (error: any) {
       alert(error.message);
     }

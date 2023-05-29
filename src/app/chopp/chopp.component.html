@@ -1,7 +1,7 @@
 <h1>CHOPP</h1>
 <main>
  <form class="highlight" *ngIf="mostrarCamposCartao" (submit)="addProdutos()">
-  <input placeholder="Numero do cartão" *[(ngModel)]="numero_cartao" name="numero_cartao" />
+  <input placeholder="Numero do cartão" [(ngModel)]="numero_cartao" name="numero_cartao" />
   <button class="btn btn-primary">Retirar</button>
   </form>
   <div class="table">

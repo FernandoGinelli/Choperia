@@ -22,19 +22,31 @@ export class VincularClienteComponent implements OnInit {
       await this.cartao.insert({
         cartao_vinculado: this.cliente.cartao_vinculado,produtos: cartao.produtos
       });
-      this.cartao.delete(cartao)
+      if (cartao.cartao_vinculado != this.auxC) {
+        this.cartao.delete({cartao_vinculado: this.auxC})
+      }
+
 
   }
 
   async saveUser(cliente: Clients) {
     try {
-      if (this.cliente.cartao_vinculado == this.auxC) {
-      }else{
-        const cartao = await this.cartao.find({
-          where:{ cartao_vinculado: this.auxC}});
+      if (this.auxC!= "") {
+        if (this.cliente.cartao_vinculado == this.auxC) {
+        }else{
+          const cartao = await this.cartao.find({
+            where:{ cartao_vinculado: this.auxC}});
 
-        await this.addcartao(cartao[0])
+          var cartao1: Cartao = {cartao_vinculado: this.cliente.cartao_vinculado,produtos: cartao[0].produtos }
+          await this.addcartao(cartao1)
+        }
       }
+      else{
+        var cartao: Cartao = {cartao_vinculado: this.cliente.cartao_vinculado,produtos:[] }
+
+        await this.addcartao(cartao)
+      }
+
 
 
       // Se chegar aqui, significa que o cartão foi adicionado com sucesso

@@ -82,9 +82,10 @@ async deleteProdutos() {
   var j =0
   while (i< this.cartoes.length) {
     while (j< this.user.length) {
-      if (this.user[j].cartao_vinculado === this.cartoes[i].cartao_vinculado) {
+      if (this.user[j].cartao_vinculado == this.cartoes[i].cartao_vinculado) {
         //this.user[j].cartao_vinculado = ""
         this.cartoes[i].produtos = []
+
         var user = this.user[j]
         this.saveUser(user)
       }
