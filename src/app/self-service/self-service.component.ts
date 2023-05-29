@@ -82,6 +82,7 @@ export class SelfServiceComponent implements OnInit {
     });
 
     cartao[0].produtos.push({
+      ide:"comida",
       nome: "Comida",
       preco: this.valorAPagar
     })

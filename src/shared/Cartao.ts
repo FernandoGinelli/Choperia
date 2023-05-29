@@ -19,7 +19,10 @@ export class Cartao {
 
 class Produto {
   @Fields.string()
-  nome!: string;
+  ide: string = '';
+
+  @Fields.string()
+  nome: string = '';
 
   @Fields.number()
   preco!: number;

@@ -25,6 +25,7 @@ export class RetirarProdutoComponent implements OnInit {
       if (produtoExistente && Number(produtoExistente.quantidadeProduto)  > 0 && produtoExistente.tipoProduto == "Alimento" ) {
         this.quantidadeProduto = (Number(produtoExistente.quantidadeProduto) -1).toString();
         produtoExistente.quantidadeProduto = this.quantidadeProduto ;
+        produtoExistente.consumidoXVezes = produtoExistente.consumidoXVezes+1
         this.quantidadeProduto =""
         this.codigoBarras = ""
         this.nomeProduto = ""

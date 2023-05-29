@@ -103,7 +103,8 @@ export class ChoppComponent implements OnInit {
     });
 
     cartao[0].produtos.push({
-      nome: this.produtoAux.nomeProduto,
+      ide:this.produtoAux.codigoBarras,
+      nome: '',
       preco: Number(this.produtoAux.valorProduto)
     })
 

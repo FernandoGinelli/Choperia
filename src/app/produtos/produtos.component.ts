@@ -5,6 +5,8 @@ import JsBarcode from 'jsbarcode';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
+import { Observable, timer } from 'rxjs';
 
 
 @Component({
@@ -19,12 +21,16 @@ export class ProdutosComponent implements OnInit {
   @ViewChild('divCodigoBarras') divCodigoBarras!: any;
   constructor(private router: Router) { }
 
+  filter = "";
+
 
   codigoBarras = ""
   nomeProduto = ""
   valorProduto = ""
   quantidadeProduto =""
   tipoProduto = 'Alimento';
+
+
 
 
 
@@ -55,8 +61,13 @@ async saveProdutos(produtos: Produtos) {
 // src/app/todo/todo.component.ts
 
 async deleteProdutos(produtos: Produtos) {
-  await this.produtosRepo.delete(produtos);
-  this.produtoss = this.produtoss.filter(t => t !== produtos);
+  if (produtos.consumidoXVezes<1) {
+    await this.produtosRepo.delete(produtos);
+    this.produtoss = this.produtoss.filter(t => t !== produtos);
+  }
+  else{
+    alert("Produto não pode ser removido, pois ja foi movimentado")
+  }
 }
 
 
@@ -113,8 +124,17 @@ navegarParaEditar(cliente: Produtos) {
   this.router.navigate(['/editar'], { state: { cliente } });
 }
 
+atualiza(){
+
+  this.produtosRepo.find({where: {nomeProduto:{$contains: this.filter}}}).then((items) => (this.produtoss = items));
+
+  console.log(this.filter)
+
+}
+
 ngOnInit() {
   this.produtosRepo.find().then((items) => (this.produtoss = items));
+
 }
 
 

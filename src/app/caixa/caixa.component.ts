@@ -16,8 +16,11 @@ export class CaixaComponent implements OnInit{
 
 userRepo = remult.repo(Clients);
 cartaoRepo = remult.repo(Cartao);
+produtosRepo = remult.repo(Produtos);
+produtos: Produtos[] =[]
 cartoes: Cartao[] = []
 user: Clients[] = []
+
 
 numero_cartao = ""
 
@@ -36,7 +39,16 @@ async addCartao() {
       this.total += Number(cartao[0].produtos[i].preco);
       i++
     }
+    i = 0
+    while (i < cartao[0].produtos.length)
+    {
+      this.produtos = await this.produtosRepo.find({
+        where:{ codigoBarras: cartao[0].produtos[i].ide}});
+      cartao[0].produtos[i].nome =  this.produtos[0].nomeProduto;
+      i++
+    }
 
+    cartao[0].produtos
     this.cartoes.push(cartao[0])
   // limpa o campo após adicionar o cartão
   this.numero_cartao = "";
