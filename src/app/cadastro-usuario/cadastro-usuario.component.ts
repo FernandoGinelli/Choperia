@@ -64,8 +64,7 @@ export class CadastroUsuarioComponent implements OnInit {
       const options: NgbModalOptions = {
         backdrop: false, // Configuração para desativar o backdrop
         keyboard: true,
-        centered: true,
-        fullscreen:true
+        centered: true
         // Configuração para desativar o fechamento do modal com a tecla ESC
       };
       var modalRef = this.modalService.open(EditarComponent, options);

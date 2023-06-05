@@ -18,12 +18,15 @@ export class Produtos {
   nomeProduto = ""
 
 
+  @Fields.number()
+  custo = ""
+
 
   @Fields.number()
   valorProduto = ""
 
   @Fields.integer()
-  quantidadeProduto = ""
+  quantidadeProduto = "0"
 
   @Fields.string()
   tipoProduto = ""

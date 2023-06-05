@@ -6,10 +6,12 @@
   <main class="container">
     <div class="table-container" style="display: grid;"><label>Nome:</label>
       <input [(ngModel)]="cliente.nomeProduto"  />
-      <label>Valor:</label>
+      <label>Valor de venda:</label>
       <input [(ngModel)]="cliente.valorProduto"  />
       <label>Quantidade:</label>
       <input [(ngModel)]="cliente.quantidadeProduto"  />
+      <label>Custo:</label>
+      <input [(ngModel)]="cliente.custo"  />
 
       <label for="tipoProduto" class="control-label">Tipo do Produto:</label>
         <select class="form-control" id="tipoProduto" [(ngModel)]="cliente.tipoProduto" name="tipoProduto">

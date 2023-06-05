@@ -3,6 +3,11 @@ import jsPDF from 'jspdf';
 import { remult } from 'remult';
 import { Produtos } from 'src/shared/Produtos';
 import autoTable from 'jspdf-autotable';
+import { Router } from '@angular/router';
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+import { EditarComponent } from '../cadastro-usuario/editar/editar.component';
+import { FluxoComponent } from './fluxo/fluxo.component';
+import { CompraClientesComponent } from './compra-clientes/compra-clientes.component';
 
 @Component({
   selector: 'app-relatorios',
@@ -15,6 +20,8 @@ export class RelatoriosComponent implements OnInit {
   produtosB: Produtos[] = [];
   produtosFalta: Produtos[] = [];
   produtosFaltaB: Produtos[] = [];
+  constructor( private modalService: NgbModal){}
+
 
   gerarRelatorio() {
     const doc = new jsPDF();
@@ -115,6 +122,28 @@ export class RelatoriosComponent implements OnInit {
     this.criarTabelaRanking(doc, this.produtosB, 40);
 
     doc.save('ChoppMaisVendido.pdf');
+  }
+
+
+  gerarRelatorioFluxo(){
+
+    const options: NgbModalOptions = {
+      backdrop: false, // Configuração para desativar o backdrop
+      keyboard: true,
+      centered: true
+      // Configuração para desativar o fechamento do modal com a tecla ESC
+    };
+    var modalRef = this.modalService.open(FluxoComponent, options);
+  }
+
+  gerarRelatorioCliente(){
+    const options: NgbModalOptions = {
+      backdrop: false, // Configuração para desativar o backdrop
+      keyboard: true,
+      centered: true
+      // Configuração para desativar o fechamento do modal com a tecla ESC
+    };
+    var modalRef = this.modalService.open(CompraClientesComponent, options);
   }
 
   ngOnInit(): void {

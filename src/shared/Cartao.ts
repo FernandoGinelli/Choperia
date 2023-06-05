@@ -11,7 +11,8 @@ export class Cartao {
   @Fields.object()
   produtos: Produto[] = [];
 
-
+  @Fields.string()
+  total!: string;
 
 }
 
@@ -26,6 +27,9 @@ class Produto {
 
   @Fields.number()
   preco!: number;
+
+  @Fields.number()
+  quantidade!: number;
 
   constructor(nome: string, preco: number) {
     this.nome = nome;

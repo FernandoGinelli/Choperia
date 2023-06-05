@@ -39,8 +39,7 @@ export class Clients{
 
 
 class Compra {
-  @Fields.uuid()
-  id!: string
+
 
   @Fields.object()
   data!: Data;

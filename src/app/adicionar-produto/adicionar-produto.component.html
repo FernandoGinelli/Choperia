@@ -22,7 +22,8 @@
         <tr>
           <th>Código de Barras</th>
           <th>Nome do Produto</th>
-          <th>Valor do Produto</th>
+
+          <th>Custo do Produto</th>
           <th>Quantidade do Produto</th>
           <th>Tipo do Produto</th>
         </tr>
@@ -31,14 +32,9 @@
         <tr *ngFor="let produto of produtoss">
           <td>{{ produto.codigoBarras }}</td>
           <td>{{ produto.nomeProduto }}</td>
-          <td>{{ produto.valorProduto }}</td>
+          <td>{{ produto.custo }}</td>
           <td>
-            <input
-              type="number"
-              class="form-control"
-              [(ngModel)]="produto.quantidadeProduto"
-              [ngModelOptions]="{ standalone: true }"
-            />
+            {{ produto.quantidadeProduto }}
           </td>
           <td>{{ produto.tipoProduto }}</td>
         </tr>

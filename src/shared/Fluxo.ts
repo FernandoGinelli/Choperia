@@ -5,42 +5,39 @@ import { Allow, Entity, Fields, getFields, IdEntity, UserInfo } from "remult";
 })
 export class Fluxo {
 
-  @Fields.date()
-  data!: Date;
+  @Fields.string()
+  id!: string;
 
   @Fields.object()
-  vendas: Vendas[] = [];
+  data: Data = new Data;
+
+  @Fields.number()
+  vendas!: number;
 
 
-  @Fields.object()
-  despesas: Despesas[] = [];
+  @Fields.number()
+  despesas!: number;
+
+  constructor() {
+    const currentDate = new Date();
+    this.data = new Data();
+    this.data.dia = currentDate.getDate().toString();
+    this.data.mes = (currentDate.getMonth() + 1).toString();
+    this.data.ano = currentDate.getFullYear().toString();
+    this.id=currentDate.getDate().toString()+(currentDate.getMonth() + 1).toString()+currentDate.getFullYear().toString()
+  }
 
 }
 
-
-class Despesas {
+class Data {
   @Fields.string()
-  item!: string;
+  dia!: string;
 
-  @Fields.number()
-  valor!: number;
-
-  constructor(nome: string, valor: number) {
-    this.item = nome;
-    this.valor = valor;
-  }
-}
-
-
-class Vendas {
   @Fields.string()
-  nome!: string;
+  mes!: string;
 
-  @Fields.number()
-  preco!: number;
+  @Fields.string()
+  ano!: string;
 
-  constructor(nome: string, preco: number) {
-    this.nome = nome;
-    this.preco = preco;
-  }
+
 }

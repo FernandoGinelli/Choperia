@@ -24,10 +24,12 @@ import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.co
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbdCollapseNavbar } from './collapse-navbar';
+import { FluxoComponent } from './relatorios/fluxo/fluxo.component';
+import { CompraClientesComponent } from './relatorios/compra-clientes/compra-clientes.component';
 
 @NgModule({
   declarations: [
-    AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent, RelatoriosComponent
+    AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent, RelatoriosComponent, FluxoComponent, CompraClientesComponent
   ],
   imports: [NgbdCollapseNavbar,
     BrowserModule,

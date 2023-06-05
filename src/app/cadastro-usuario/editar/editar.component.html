@@ -1,25 +1,25 @@
 
 
-  <div class="modal-content"  >
-    <span class="close" (click)="activeModal.dismiss()">&times;</span>
+  <div class="modal-content" style="height:  26rem;"  >
+    <span class="close" (click)="activeModal.dismiss()" style="margin-left: 95%; ">&times;</span>
 
-    <h2>Editar Usuário</h2>
+    <h2 style="margin-left: 2rem;">Editar Usuário</h2>
     <div>
-    <form  (submit)="saveUser(user)" class="row" style="height: auto;">
+    <form  (submit)="saveUser(user)"  style="margin: 2rem;">
 
-      <div class="col-sm-4">
+      <div >
         <div class="form-group">
           <label for="nome">Nome:</label>
           <input type="text" class="form-control" id="nome" [(ngModel)]="user.name" name="nome" placeholder="Nome">
         </div>
       </div>
-      <div class="col-sm-4">
+      <div >
         <div class="form-group">
           <label for="senha">Senha:</label>
           <input type="password" class="form-control" id="senha" [(ngModel)]="user.password" name="senha" placeholder="Senha">
         </div>
       </div>
-      <div class="col-sm-4">
+      <div >
         <div class="form-group">
           <label for="role">Role:</label>
           <select class="form-control" id="role" [(ngModel)]="user.roles" name="role" required>
@@ -29,7 +29,7 @@
           </select>
         </div>
       </div>
-      <div class="col-sm-12">
+      <div  style="margin-left: 40%">
         <button type="submit" class="btn btn-primary">Salvar</button>
       </div>
       </form></div>

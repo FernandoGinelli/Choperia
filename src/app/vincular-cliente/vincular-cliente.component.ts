@@ -37,12 +37,18 @@ export class VincularClienteComponent implements OnInit {
           const cartao = await this.cartao.find({
             where:{ cartao_vinculado: this.auxC}});
 
-          var cartao1: Cartao = {cartao_vinculado: this.cliente.cartao_vinculado,produtos: cartao[0].produtos }
+          var cartao1: Cartao = {
+            cartao_vinculado: this.cliente.cartao_vinculado, produtos: cartao[0].produtos,
+            total: cartao[0].total
+          }
           await this.addcartao(cartao1)
         }
       }
       else{
-        var cartao: Cartao = {cartao_vinculado: this.cliente.cartao_vinculado,produtos:[] }
+        var cartao: Cartao = {
+          cartao_vinculado: this.cliente.cartao_vinculado, produtos: [],
+          total: ''
+        }
 
         await this.addcartao(cartao)
       }

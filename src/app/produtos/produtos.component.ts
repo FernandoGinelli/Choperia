@@ -27,6 +27,7 @@ export class ProdutosComponent implements OnInit {
   codigoBarras = ""
   nomeProduto = ""
   valorProduto = ""
+  custo =""
   quantidadeProduto =""
   tipoProduto = 'Alimento';
 
@@ -37,7 +38,7 @@ export class ProdutosComponent implements OnInit {
 
   async addProdutos() {
     try {
-      const newProdutos = await this.produtosRepo.insert({ codigoBarras: this.codigoBarras, nomeProduto: this.nomeProduto, valorProduto: this.valorProduto,quantidadeProduto: this.quantidadeProduto, tipoProduto: this.tipoProduto})
+      const newProdutos = await this.produtosRepo.insert({ codigoBarras: this.codigoBarras, nomeProduto: this.nomeProduto, valorProduto: this.valorProduto, custo: this.custo, tipoProduto: this.tipoProduto})
       this.produtoss.push(newProdutos)
       this.codigoBarras = ""
       this.nomeProduto = ""
