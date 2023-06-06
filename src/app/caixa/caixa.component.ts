@@ -48,11 +48,16 @@ async addCartao() {
       i++
     }
     i = 0
+
     while (i < cartao[0].produtos.length)
     {
+
+      if (cartao[0].produtos[i].ide != "comida") {
       this.produtos = await this.produtosRepo.find({
-        where:{ codigoBarras: cartao[0].produtos[i].ide}});
+      where:{ codigoBarras: cartao[0].produtos[i].ide}});
       cartao[0].produtos[i].nome =  this.produtos[0].nomeProduto;
+    }
+
       i++
     }
 
@@ -102,6 +107,7 @@ async deleteProdutos() {
           produtos: this.cartoes[i].produtos
         })
         this.cartoes[i].produtos = []
+        this.cartoes[i].total = "0"
         var user = this.user[j]
         this.saveUser(user)
       }
@@ -124,7 +130,6 @@ async deleteProdutos() {
 async addfluxo(vendas: any){
   const currentDate = new Date();
 
-  alert(currentDate.getFullYear().toString() + currentDate.getDate().toString()+ (currentDate.getMonth()+1).toString())
 
   try{
     const teste = this.fluxo.find((fluxo) => fluxo.data.ano == currentDate.getFullYear().toString() && fluxo.data.dia == currentDate.getDate().toString() && fluxo.data.mes == (currentDate.getMonth()+1).toString())
@@ -132,7 +137,6 @@ async addfluxo(vendas: any){
     if (teste) {
       teste.vendas = teste.vendas+vendas
 
-      alert(teste)
       await this.saveFluxo(teste)
     }
     else{

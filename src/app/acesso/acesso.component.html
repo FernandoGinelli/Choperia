@@ -3,22 +3,37 @@
     <h1>Verificar Acesso</h1>
     <main class="container">
       <div class="table-container" style="display: grid; justify-content: center; align-items: center;">
-        <label>Cartão:</label>
-        <input placeholder="Número do Cartão" [(ngModel)]="numero_cartao" name="numero_cartão" />
+        <div class="card">
+          <div class="card-body">
+            <label>Cartão:</label>
+            <input placeholder="Número do Cartão" [(ngModel)]="numero_cartao" name="numero_cartão" />
 
-        <button class="btn btn-primary">
-          OK
-        </button>
-      </div>
-      <div *ngIf="!espera">
-        <div *ngIf="total == 0" style="background-color: rgb(2, 122, 8); height: 300; display: flex; justify-content: center; align-items: center;">
-          <h1>Autorizado</h1>
-        </div>
-        <div *ngIf="total > 0" style="background-color: red; height: 300; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-          <h1>Bloqueado</h1>
-          <div><strong>Debito: {{ total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</strong></div>
+            <button class="btn btn-primary">
+              OK
+            </button>
+          </div>
         </div>
       </div>
+    <!-- Código do formulário existente -->
+
+<!-- Modal -->
+<div class="modal" *ngIf="exibirModal">
+  <div class="modal-content" [ngClass]="{'modal-autorizado': total <= 0, 'modal-bloqueado': total > 0}">
+    <div class="modal-header">
+      <h2>{{ total == 0 ? 'Autorizado' : 'Bloqueado' }}</h2>
+    </div>
+    <div class="modal-body">
+      <p *ngIf="total <= 0">Acesso permitido.</p>
+      <p *ngIf="total > 0">Acesso bloqueado.</p>
+      <p *ngIf="total > 0">Débito: {{ total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</p>
+    </div>
+    <div class="modal-footer">
+      <button (click)="exibirModal = false">Fechar</button>
+    </div>
+  </div>
+</div>
+
+      
     </main>
   </div>
 </form>

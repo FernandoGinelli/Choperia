@@ -8,24 +8,25 @@ form {
     border-style: double white;
     margin-left: 40%;
     margin-right: 40%;
-    background-color: #8180ca;
-    border-radius: 10px;
+    background-color: #050507;
+    border-radius: 15%;
 }
 
 form h1{
-  font-size: 2rem;
-  margin-bottom: 4rem;
+  font-size: 4rem;
+  margin-bottom: 3rem;
   font-style: oblique;
+  color: aliceblue;
 }
     form input {
-      width: 80%;
+      width: 50%;
       padding: 0.5rem;
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
     form button {
-      width: 65%;
+      width: 50%;
       padding: 0.5rem;
       border: none;
       border-radius: 5px;
@@ -102,4 +103,30 @@ form h1{
   .login-title {
     font-size: 2rem;
     text-align: center;
+  }
+
+  .login-container {
+    background-image: url('http://127.0.0.1:8080/imagens/background.jpg');
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-image {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
   }

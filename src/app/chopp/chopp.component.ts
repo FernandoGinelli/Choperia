@@ -109,6 +109,9 @@ export class ChoppComponent implements OnInit {
       quantidade: 0
     })
 
+    var aux = Number(cartao[0].total) + Number(this.produtoAux.valorProduto)
+    cartao[0].total = aux.toString()
+
 
     this.saveCartao(cartao[0]);
     // limpa o campo após adicionar o cartão

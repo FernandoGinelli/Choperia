@@ -42,6 +42,7 @@ async deleteTask(task: Task) {
 
 async setAllCompleted(completed: boolean) {
     await TasksController.setAllCompleted(completed);
+    this.ngOnInit()
 
 };
 

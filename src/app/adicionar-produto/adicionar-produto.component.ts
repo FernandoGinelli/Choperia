@@ -42,7 +42,6 @@ export class AdicionarProdutoComponent implements OnInit {
   async addfluxo(custo: any){
     const currentDate = new Date();
 
-    alert(currentDate.getFullYear().toString() + currentDate.getDate().toString()+ (currentDate.getMonth()+1).toString())
 
     try{
       const teste = this.fluxo.find((fluxo) => fluxo.data.ano == currentDate.getFullYear().toString() && fluxo.data.dia == currentDate.getDate().toString() && fluxo.data.mes == (currentDate.getMonth()+1).toString())
@@ -50,7 +49,6 @@ export class AdicionarProdutoComponent implements OnInit {
       if (teste) {
         teste.despesas = teste.despesas+custo
 
-        alert(teste)
         await this.saveFluxo(teste)
       }
       else{

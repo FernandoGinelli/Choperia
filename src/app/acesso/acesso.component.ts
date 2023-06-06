@@ -11,7 +11,7 @@ import { Cartao } from 'src/shared/Cartao';
 export class AcessoComponent {
   cartaoRepo = remult.repo(Cartao);
 
-
+  exibirModal = false;
 
   passou = false
   espera = true
@@ -42,15 +42,27 @@ export class AcessoComponent {
   }
 
 
-  async verificaAcesso(){
-    this.total = 0
-    this.addCartao()
+  async verificaAcesso() {
+  this.total = 0;
+  await this.addCartao();
 
-    this.espera = false
+  this.espera = false;
 
+  if (this.total > 0) {
+    this.exibirModal = true;
 
     timer(3000).subscribe(() => {
-      this.espera = true
+      this.espera = true;
+      this.exibirModal = false;
+    });
+  } else {
+    this.exibirModal = true;
+    this.espera = true;
+    timer(3000).subscribe(() => {
+      this.espera = true;
+      this.exibirModal = false;
     });
   }
+}
+
 }

@@ -71,6 +71,9 @@ export class SelfServiceComponent implements OnInit {
     //this.pesoService.getLastWeight().subscribe(lastWeight => {      this.lastWeight = lastWeight;    });
     //this.lastWeight+=0.1
 
+    if (this.lastWeight == 0) {
+      this.lastWeight = 1
+    }
     timer(100).subscribe(() => {
       this.atualiza_peso()
     });
@@ -87,6 +90,8 @@ export class SelfServiceComponent implements OnInit {
       preco: this.valorAPagar,
       quantidade: 0
     })
+    var aux = Number(cartao[0].total) + Number(this.valorAPagar)
+    cartao[0].total = aux.toString()
 
 
     this.saveCartao(cartao[0]);

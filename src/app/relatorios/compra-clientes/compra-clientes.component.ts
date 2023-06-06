@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   NgbDate,
   NgbActiveModal,
@@ -16,14 +16,14 @@ import { Produtos } from 'src/shared/Produtos';
   templateUrl: './compra-clientes.component.html',
   styleUrls: ['./compra-clientes.component.scss'],
 })
-export class CompraClientesComponent {
+export class CompraClientesComponent implements OnInit{
   hoveredDate: NgbDate | null = null;
 
   fromDate: NgbDate;
   toDate: NgbDate | null = null;
 
-  fluxo: Clients[] = [];
-  fluxoRepo = remult.repo(Clients);
+  clientes: Clients[] = [];
+  clientesRepo = remult.repo(Clients);
   produtosRepo = remult.repo(Produtos)
   produtos: Produtos[] = []
   constructor(public activeModal: NgbActiveModal, calendar: NgbCalendar) {
@@ -71,6 +71,10 @@ export class CompraClientesComponent {
 
 
   funcao() {
+    this.atualizaNomes()
+
+
+
     this.fromDate;
     this.toDate;
     const from = new Date(
@@ -86,7 +90,7 @@ export class CompraClientesComponent {
 
     var fluxoAux: Clients[] = [];
 
-    fluxoAux = this.fluxo.filter(function (fluxo) {
+    fluxoAux = this.clientes.filter(function (fluxo) {
 
       for (const compra in fluxo.compras) {
         if (fluxo.compras.hasOwnProperty(compra)) {
@@ -203,187 +207,45 @@ export class CompraClientesComponent {
     doc.save('Relatorio_Consumo_Clients.pdf');
   }
   async atualizaNomes() {
-    this.produtosRepo.find().then((items: Produtos[]) => (this.produtos = items));
-    this.fluxoRepo.find().then((items: Clients[]) => (this.fluxo = items));
+    for (let i = 0; i < this.clientes.length; i++) {
+      const cliente = this.clientes[i];
 
+      if (cliente.compras && cliente.compras.length > 0) {
+        for (let j = 0; j < cliente.compras.length; j++) {
+          const compra = cliente.compras[j];
 
-    var fluxoAux = this.fluxo.filter( async (fluxo) => {
-    for (var compra in fluxo.compras) {
-        if (fluxo.compras.hasOwnProperty(compra)) {
-          var compraAtual = fluxo.compras[compra];
-          var i =0
-          while (i< compraAtual.produtos.length) {
-            const produto = this.produtos.find(
-              (p) => p.codigoBarras === compraAtual.produtos[i].ide
-            );
-            if (produto) {
-              compraAtual.produtos[i].nome = produto.nomeProduto
+          if (compra.produtos && compra.produtos.length > 0) {
+            for (let k = 0; k < compra.produtos.length; k++) {
+              const produto = compra.produtos[k];
+
+              const produtoEncontrado = this.produtos.find(
+                (p) => p.codigoBarras === produto.ide
+              );
+
+              if (produtoEncontrado) {
+                produto.nome = produtoEncontrado.nomeProduto;
+              }
             }
-
-            i++
-            await this.fluxoRepo.save(fluxo)
           }
-          await this.fluxoRepo.save(fluxo)
-
-
         }
-        await this.fluxoRepo.save(fluxo)
       }
-    await this.fluxoRepo.save(fluxo)
-    });
-
-
-
-
-    this.fluxoRepo.find().then((items: Clients[]) => (this.fluxo = items));
+    }
   }
+
+
+
 
 
 
    ngOnInit(): void{
 
+    this.clientesRepo.find().then((items: Clients[]) => (this.clientes = items));
+    this.produtosRepo.find().then((items: Produtos[]) => (this.produtos = items));
     this.atualizaNomes()
-    this.fluxo = []
-    this.fluxoRepo.find().then((items: Clients[]) => (this.fluxo = items));
+    this.clientesRepo.find().then((items: Clients[]) => (this.clientes = items));
+
+
+
 
   }
 }
-
-
-//gerarRelatorio() {
-//  this.fromDate;
-//  this.toDate;
-//  const from = new Date(
-//    this.fromDate.year + '-' + this.fromDate.month + '-' + this.fromDate.day
-//  );
-//
-//  var toDa = new Date();
-//  if (this.toDate) {
-//    toDa = new Date(
-//      this.toDate.year + '-' + this.toDate.month + '-' + this.toDate.day
-//    );
-//  }
-//
-//  var fluxoAux: Clients[] = [];
-//
-//  fluxoAux = this.fluxo.filter(function (fluxo) {
-//    for (const compra in fluxo.compras) {
-//      if (fluxo.compras.hasOwnProperty(compra)) {
-//        const compraAtual = fluxo.compras[compra];
-//        var fluxoData = new Date(
-//          compraAtual.data.ano +
-//            '-' +
-//            compraAtual.data.mes +
-//            '-' +
-//            compraAtual.data.dia
-//        );
-//
-//        if (fluxoData >= from && fluxoData <= toDa) {
-//        } else {
-//          fluxo.compras.splice(
-//            fluxo.compras.indexOf(fluxo.compras[compra]),
-//            1
-//          );
-//        }
-//      }
-//    }
-//    if (fluxo.compras.length >= 1) {
-//      return fluxo;
-//    } else return;
-//  });
-//
-//  const sortedClients = fluxoAux.sort((a, b) => {
-//    const valorTotalA = a.compras.reduce(
-//      (total, compra) =>
-//        total +
-//        compra.produtos.reduce((subtotal, produto) => subtotal + produto.preco, 0),
-//      0
-//    );
-//
-//    const valorTotalB = b.compras.reduce(
-//      (total, compra) =>
-//        total +
-//        compra.produtos.reduce((subtotal, produto) => subtotal + produto.preco, 0),
-//      0
-//    );
-//
-//    return valorTotalB - valorTotalA; // Ordena em ordem decrescente pelo valor total
-//  });
-//
-//  const doc = new jsPDF();
-//
-//  doc.setFontSize(18);
-//  doc.text('Consumo de Cliente por período:', 50, 20);
-//
-//  let startY = 30; // Posição vertical inicial da tabela
-//
-//  sortedClients.forEach((client, index) => {
-//    const comprasCliente = client.compras.map((compra) => {
-//      const itensComprados = compra.produtos.map((produto) => ({
-//        NomeProduto: produto.nome,
-//        ValorProduto: produto.preco.toLocaleString('pt-BR', {
-//          style: 'currency',
-//          currency: 'BRL',
-//        }),
-//      }));
-//
-//      return {
-//        DataCompra: `${compra.data.dia}/${compra.data.mes}/${compra.data.ano}`,
-//        ItensComprados: itensComprados,
-//      };
-//    });
-//
-//    const valorTotal = client.compras.reduce(
-//      (total, compra) =>
-//        total +
-//        compra.produtos.reduce((subtotal, produto) => subtotal + produto.preco, 0),
-//      0
-//    );
-//
-//    // Pular linha e destacar o nome do cliente
-//    if (index !== 0) {
-//      startY += 10; // Aumentar a posição vertical para pular uma linha
-//    }
-//
-//    doc.setFontSize(14);
-//    doc.setFont('bold');
-//    doc.text(client.name, 10, startY);
-//
-//    startY += 10; // Aumentar a posição vertical para o próximo bloco de informações
-//
-//    // Adicionar valor total comprado pelo cliente
-//    doc.setFontSize(12);
-//    doc.setFont('normal');
-//    doc.text(
-//      `Valor total comprado: ${valorTotal.toLocaleString('pt-BR', {
-//        style: 'currency',
-//        currency: 'BRL',
-//      })}`,
-//      10,
-//      startY
-//    );
-//
-//    startY += 10; // Aumentar a posição vertical para os itens comprados
-//
-//    // Adicionar a lista de itens comprados
-//    doc.setFont('bold');
-//    doc.text('Itens Comprados:', 10, startY);
-//
-//    startY += 5; // Aumentar a posição vertical para os detalhes dos itens comprados
-//
-//    // Adicionar os detalhes dos itens comprados
-//    doc.setFont('normal');
-//    comprasCliente.forEach((compra) => {
-//      doc.text(`Data: ${compra.DataCompra}`, 15, startY);
-//      startY += 5; // Aumentar a posição vertical para os detalhes de cada item comprado
-//
-//      compra.ItensComprados.forEach((itemComprado) => {
-//        doc.text(`- ${itemComprado.NomeProduto}: ${itemComprado.ValorProduto}`, 20, startY);
-//        startY += 5; // Aumentar a posição vertical para o próximo item comprado
-//      });
-//    });
-//  });
-//
-//  doc.save('Relatorio_Consumo_Clients.pdf');
-//}
-//
