@@ -26,10 +26,12 @@ import { FormsModule } from '@angular/forms';
 import { NgbdCollapseNavbar } from './collapse-navbar';
 import { FluxoComponent } from './relatorios/fluxo/fluxo.component';
 import { CompraClientesComponent } from './relatorios/compra-clientes/compra-clientes.component';
+import { EmailClientesComponent } from './relatorios/email-clientes/email-clientes.component';
+import { EmailService } from './relatorios/email-clientes/email.service';
 
 @NgModule({
   declarations: [
-    AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent, RelatoriosComponent, FluxoComponent, CompraClientesComponent
+    AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent, RelatoriosComponent, FluxoComponent, CompraClientesComponent, EmailClientesComponent
   ],
   imports: [NgbdCollapseNavbar,
     BrowserModule,
@@ -37,7 +39,7 @@ import { CompraClientesComponent } from './relatorios/compra-clientes/compra-cli
     NgbModule,
     HttpClientModule, FormsModule
   ],
-  providers: [],
+  providers: [EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

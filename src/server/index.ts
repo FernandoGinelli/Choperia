@@ -8,6 +8,9 @@ import path from "path"
 import bodyParser from "body-parser"
 import { api } from "./api"
 import { auth } from "./auth"
+import { email } from "./email"
+const nodemailer = require("nodemailer");
+
 
 
 
@@ -24,12 +27,14 @@ app.use(
 app.use(helmet({ contentSecurityPolicy: false }))
 app.use(compression())
 
-app.use(api,auth)
+app.use(api,auth,email)
 
 app.use(express.static(path.join(__dirname, "../remult-angular-todo")))
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "../remult-angular-todo", "index.html"))
 })
+
+
 
 app.listen(process.env["PORT"] || 3002, () => console.log("Server started"))
 
