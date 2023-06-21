@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
 })
 export class PesoService {
 
-  private pesoUrl = 'http://192.168.2.30/peso';
+  private pesoUrl = 'http://192.168.0.103/peso';
 
   constructor(private http: HttpClient) { }
 

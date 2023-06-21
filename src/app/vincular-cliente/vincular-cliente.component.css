@@ -1,42 +1,63 @@
+/* Estilização do formulário */
 .container {
-    margin: 0 auto;
-    padding: 5px;
-  }
-  
-  
-  .form-inline .form-group {
-    display: inline-block;
-    margin-right: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding-top: 40px;
+}
 
-  .table-container {
-    overflow-x: auto;
-    height: 50vh;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    
-  }
-    
+.table-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  
-  .table th,
-  .table td {
-    padding: 10px;
-    text-align: center;
-    vertical-align: middle;
-    border-right: 1px solid #000000;
-  }
-   
-  .table th {
-    font-weight: bold;
-    background-color: #191a1b;
-    color: #fff;
-  }
-  
-  .table td:last-child {
-    text-align: center;
-  }
+.table-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.table-container input[type="text"],
+.table-container select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.table-container button {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.table-container button:hover {
+  background-color: #0056b3;
+  cursor: pointer;
+}
+
+/* Estilização do cabeçalho */
+h1 {
+  font-size: 70px;
+  text-align: center;
+  margin-bottom: 2px;
+  font-family: "Algerian", sans-serif;
+  color: rgb(102, 39, 14);
+}
+
+/* Estilização do corpo da página */
+body {
+  background-color: #e9ecef;
+  margin: 0;
+  padding: 0;
+}

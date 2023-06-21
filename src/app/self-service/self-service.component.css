@@ -7,6 +7,14 @@
   border: 1px solid #ccc;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.container h1 {
+  font-size: 80px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Algerian", sans-serif;
+    color: rgb(102, 39, 14);
+  
+}
 
 .card-left {
   float: left;
@@ -37,7 +45,4 @@
 
 .form-group label{
   font-size: 15px;
-}
-.container{
-  background-color: #ccc;
 }

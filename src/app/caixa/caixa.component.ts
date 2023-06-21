@@ -6,7 +6,10 @@ import { Cartao } from 'src/shared/Cartao';
 import { Clients } from 'src/shared/Clients';
 import { Fluxo } from 'src/shared/Fluxo';
 import { Produtos } from 'src/shared/Produtos';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import { User } from 'src/shared/Users';
+import JsBarcode from 'jsbarcode';
 
 @Component({
   selector: 'app-caixa',
@@ -94,6 +97,7 @@ pagar() {
 
 
 async deleteProdutos() {
+  this.nota_fiscal()
   var i = 0
   var j =0
   while (i< this.cartoes.length) {
@@ -114,11 +118,11 @@ async deleteProdutos() {
       j++
     }
     j = 0
-    await this.cartaoRepo.save(this.cartoes[i]);
+    
     //await this.cartaoRepo.delete(this.cartoes[i]);
     i++
   }
-
+  await this.cartaoRepo.save(this.cartoes);
   this.cartoes = []
   this.total =0
   this.valorPago =0
@@ -177,6 +181,72 @@ cancelar(){
   this.total =0
   this.valorPago =0
 }
+
+nota_fiscal() {
+  this.gerarPDF()
+}
+
+
+
+gerarPDF() {
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'mm',
+    format: 'letter',
+    putOnlyUsedFonts: true
+  });
+
+  const mywindow = window.open('', '', 'height=800');
+
+  const svg: any = document.getElementById("divCodigoBarras");
+
+  const image = document.createElement('img');
+  image.src = svg!.toDataURL();
+  image.style.width = '100px';
+  image.style.margin = '10px';
+
+  const divPrincipal = document.createElement('div');
+  const notaFiscal = this.gerarNotaFiscal();
+
+  // Adiciona o estilo para manter as quebras de linha
+  divPrincipal.style.whiteSpace = 'pre-wrap';
+
+  // Cria um elemento de parágrafo para a nota fiscal
+  const paragraph = document.createElement('p');
+  paragraph.innerText = notaFiscal;
+
+  divPrincipal.appendChild(paragraph);
+
+  mywindow!.document.body.appendChild(divPrincipal);
+
+  mywindow!.print();
+}
+
+
+
+gerarNotaFiscal(): string {
+  const documentTitle = "Choperia\n-----------------------------------------------------";
+  const total = this.total;
+  var quantidade = 1
+
+  let documentContent = `${documentTitle}\n\nProdutos:\n`;
+
+  for (const cartao of this.cartoes) {
+    documentContent += `\nCartão: ${cartao.cartao_vinculado}\n`;
+    for (const produto of cartao.produtos) {
+      documentContent += ` ${quantidade} - ${produto.ide} - ${produto.nome} - R$${produto.preco.toFixed(2)}\n`;
+      quantidade++
+    }
+  }
+
+  documentContent += `\nTotal: R$${total.toFixed(2)}`;
+  var valorPago= total+this.troco
+  documentContent += `\nValor Pago: R$${valorPago.toFixed(2)}`;
+  documentContent += `\nTroco: R$${this.troco.toFixed(2)}\n\n-----------------------------------------------------`;
+  
+  return documentContent;
+}
+
 ngOnInit() {
   this.cartoes = []
   this.total =0

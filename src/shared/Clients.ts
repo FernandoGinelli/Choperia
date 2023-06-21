@@ -3,9 +3,7 @@ import { Cartao } from "./Cartao";
 
 @Entity<Clients>("Clients",{
   allowApiCrud: Allow.everyone,
-  //allowApiInsert:["admin"],
-  //allowApiDelete:["admin"],
-  //allowApiUpdate: ["admin"],
+
 
 })
 export class Clients{

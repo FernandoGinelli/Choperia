@@ -1,9 +1,10 @@
 <main class="container">
   <div>
-    <div class="card">
-      <div class="card-header">
-        <h5 class="card-title">Lista de Tarefas</h5>
-      </div>
+    <div class="card-header">
+      <h1 class="card-title">Lista de Tarefas</h1>
+    </div>
+    <div class="card bg-transparent">
+     
       <div class="card-body">
         <form *ngIf="taskRepo.metadata.apiInsertAllowed" (submit)="addTask()">
           <div class="input-group mb-3">
@@ -15,7 +16,7 @@
               name="newTaskTitle"
             />
             <div class="input-group-append">
-              <button class="btn btn-primary">Add</button>
+              <button class="btn btn-primary">Adicionar</button>
             </div>
           </div>
         </form>
@@ -23,7 +24,6 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">Concluído</th>
                 <th scope="col">Título</th>
                 <th scope="col">Ações</th>
               </tr>
@@ -34,7 +34,7 @@
         <div class="table-container">
           <table class="table">
             <tbody>
-              <tr *ngFor="let task of tasks">
+              <tr [class.completed]="task.completed" *ngFor="let task of tasks">
                 <td>
                   <div class="form-check" style="height: 40px; width: 40px; margin-right: -30px;">
                     <input type="checkbox" style="height: 40px; width: 40px; margin-right: 2px;" class="form-check-input" [(ngModel)]="task.completed" (change)="saveTask(task)" />
@@ -54,12 +54,6 @@
 
 
       </div>
-      <div class="card-footer">
-        <div class="text-center">
-          <button class="btn btn-success mr-2" (click)="setAllCompleted(true)">Marcar tudo como Completo</button>
-          <button class="btn btn-warning" (click)="setAllCompleted(false)">Marcar tudo como Incompleto</button>
-        </div>
       </div>
-    </div>
   </div>
 </main>

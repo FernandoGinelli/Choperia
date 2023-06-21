@@ -1,10 +1,11 @@
 
 
+
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <main class="container">
-  <div class="card">
+  <div class="card bg-transparent">
     <div class="card-header">
       <h1 class="card-title">Caixa</h1>
     </div>
@@ -61,6 +62,8 @@
       </div>
      <div>
             <button class="btn btn-success" (click)="pagar()">Pagar</button>
+            <canvas #divCodigoBarras id="divCodigoBarras" style="height: 0; width: 0;"></canvas>
+
             <button class="btn btn-danger" (click)="cancelar()">Cancelar</button>
     </div>
 

@@ -1,1 +1,46 @@
-<p>repor-chopp works!</p>
+<main class="container">
+    <div class="card-header">
+      <h1 class="card-title">Repor Chopp</h1>
+    </div>
+    <div class="card bg-transparent">
+      
+    <form *ngIf="produtosRepo.metadata.apiInsertAllowed" (submit)="addProdutos()">
+      <div class="form-group">
+         <input
+          type="text"
+          class="form-control"
+          id="codigoBarras"
+          placeholder="Código de Barras"
+          [(ngModel)]="codigoBarras"
+          name="codigoBarras"
+        />
+      </div>
+      <button class="btn btn-primary">Adicionar</button>
+    </form>
+    <div class="table-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Código de Barras</th>
+            <th>Nome do Produto</th>
+  
+            <th>Custo do Produto</th>
+            <th>Quantidade do Produto</th>
+            <th>Tipo do Produto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtoss">
+            <td>{{ produto.codigoBarras }}</td>
+            <td>{{ produto.nomeProduto }}</td>
+            <td>{{ produto.custo }}</td>
+            <td>
+              {{ produto.quantidadeProduto }}
+            </td>
+            <td>{{ produto.tipoProduto }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  

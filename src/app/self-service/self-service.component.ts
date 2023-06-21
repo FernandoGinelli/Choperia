@@ -68,11 +68,11 @@ export class SelfServiceComponent implements OnInit {
   }
 
   atualiza_peso(){
-    //this.pesoService.getLastWeight().subscribe(lastWeight => {      this.lastWeight = lastWeight;    });
+    this.pesoService.getLastWeight().subscribe(lastWeight => {      this.lastWeight = lastWeight;    });
     //this.lastWeight+=0.1
 
     if (this.lastWeight == 0) {
-      this.lastWeight = 1
+      this.lastWeight = 0
     }
     timer(100).subscribe(() => {
       this.atualiza_peso()

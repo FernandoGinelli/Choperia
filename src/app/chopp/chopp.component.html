@@ -1,9 +1,14 @@
 <h1>CHOPP</h1>
 <main>
- <form class="highlight" *ngIf="mostrarCamposCartao" (submit)="addProdutos()">
-  <input placeholder="Numero do cartão" [(ngModel)]="numero_cartao" name="numero_cartao" />
-  <button class="btn btn-primary">Retirar</button>
+  <form class="highlight" *ngIf="mostrarCamposCartao" (submit)="addProdutos()">
+    <div class="form-group">
+      <input placeholder="Número do cartão" [(ngModel)]="numero_cartao" name="numero_cartao" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Retirar</button>
+    </div>
   </form>
+  
   <div class="table">
     <div class="table-container">
       <div *ngIf="mostrarListaProdutos">

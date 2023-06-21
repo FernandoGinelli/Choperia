@@ -4,6 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { remult, UserInfo } from 'remult';
 import { User } from 'src/shared/Users';
+import { Caixa } from 'src/shared/caixa';
+import { Fiscal } from 'src/shared/fiscalentrada';
+import { FiscalSelf } from 'src/shared/fiscalself';
+import { Cozinheiro } from 'src/shared/cozinheiro';
+import { Repositor } from 'src/shared/repositor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -11,12 +17,22 @@ import { User } from 'src/shared/Users';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  permissaoCaixa = remult.repo(Caixa);
+  permissaoFiscal = remult.repo(Fiscal);
+  permissaoRepositor = remult.repo(Repositor);
+  permissaoCozinheiro = remult.repo(Cozinheiro);
+  permissaoFiscalSelf = remult.repo(FiscalSelf);
+
+
+  constructor(private http: HttpClient, private router: Router) {}
 
 
   usersRepo = remult.repo(User);
   users: User[] = []
   private  = this.usersRepo.find().then((users) => (this.users = users));
+
+
+
 
 
   signInUsername = '';
@@ -58,7 +74,91 @@ export class AuthComponent implements OnInit {
         },
         error: (error) => alert(error.error),
       });
-    }else{
+
+    }
+    else if (this.users.find((user => user.name === this.signInUsername && user.password === this.signInSenha && user.roles.includes("FiscalEnt")))) {
+
+      this.http
+      .post<UserInfo>('/api/signIn', {
+        username: "Fiscal de Entrada",
+        password: "Fiscal de Entrada",
+      })
+      .subscribe({
+        next: (user) => {
+          this.remult.user = user;
+          this.signInUsername = '';
+          this.signInSenha = '';
+        },
+        error: (error) => alert(error.error),
+      });}
+
+
+
+      else if (this.users.find((user => user.name === this.signInUsername && user.password === this.signInSenha && user.roles.includes("cozin")))) {
+
+        this.http
+        .post<UserInfo>('/api/signIn', {
+          username: "Cozinheiro",
+          password: "Cozinheiro",
+        })
+        .subscribe({
+          next: (user) => {
+            this.remult.user = user;
+            this.signInUsername = '';
+            this.signInSenha = '';
+          },
+          error: (error) => alert(error.error),
+        });}
+
+        else if (this.users.find((user => user.name === this.signInUsername && user.password === this.signInSenha && user.roles.includes("Caixa")))) {
+
+          this.http
+          .post<UserInfo>('/api/signIn', {
+            username: "Caixa",
+            password: "Caixa",
+          })
+          .subscribe({
+            next: (user) => {
+              this.remult.user = user;
+              this.signInUsername = '';
+              this.signInSenha = '';
+            },
+            error: (error) => alert(error.error),
+          });}
+          else if (this.users.find((user => user.name === this.signInUsername && user.password === this.signInSenha && user.roles.includes("Cliente")))) {
+
+            this.http
+            .post<UserInfo>('/api/signIn', {
+              username: "Cliente",
+              password: "Cliente",
+            })
+            .subscribe({
+              next: (user) => {
+                this.remult.user = user;
+                this.signInUsername = '';
+                this.signInSenha = '';
+              },
+              error: (error) => alert(error.error),
+            });}
+
+          else if (this.users.find((user => user.name === this.signInUsername && user.password === this.signInSenha && user.roles.includes("Repositor")))) {
+
+            this.http
+            .post<UserInfo>('/api/signIn', {
+              username: "Repositor de Estoque",
+              password: "Repositor de Estoque",
+            })
+            .subscribe({
+              next: (user) => {
+                this.remult.user = user;
+                this.signInUsername = '';
+                this.signInSenha = '';
+              },
+              error: (error) => alert(error.error),
+            });}
+
+
+      else{
       this.http
       .post<UserInfo>('/api/signIn', {
         username: "x",
@@ -73,6 +173,8 @@ export class AuthComponent implements OnInit {
         error: (error) => alert(error.error),
       });
     }
+    this.router.navigate(['/']);
+
 
   }
 

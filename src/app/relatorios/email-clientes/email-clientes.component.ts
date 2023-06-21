@@ -11,6 +11,7 @@ import { Produtos } from 'src/shared/Produtos';
 import jsPDF from 'jspdf';
 import * as nodemailer from 'nodemailer';
 import { HttpClient } from '@angular/common/http';
+import { email } from 'src/server/email';
 
 @Component({
   selector: 'app-email-clientes',
@@ -156,10 +157,11 @@ export class EmailClientesComponent implements OnInit {
     }).subscribe(
       (res: any) => {
         console.log(this.response = res)
+        alert("Email Enviado")
 
       },
       (error: any) => {
-        console.log("error api");
+        alert("Email Não Enviado")
       }
     );
   }

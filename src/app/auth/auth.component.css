@@ -1,132 +1,131 @@
 form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  margin-top: 10%;
+  border-style: double white;
+  margin-left: 40%;
+  margin-right: 40%;
+  background-color: #050507;
+  border-radius: 15%;
+}
+
+  form input {
+    width: 50%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  form button {
+    width: 50%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #009b15;
+    color: #fff;
+    cursor: pointer;
+  }
+
+
+
+/* Estilo do formulário */
+input[type=text], input[type=password] {
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #ccc;
+}
+
+/* Botão de enviar */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(16, 16, 16);
+  color: #fff;
+  border-bottom: 1px solid #f6ff00;
+  padding: 15px;
+}
+
+header span {
+  margin-right: auto;
+}
+
+  
+.btn-logout {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background-color: #cc0000;
+}
+
+.router-outlet {
+  padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 5px;
+  }
+}
+
+
+.login-title {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.login-container {
+  background-image: url('http://127.0.0.1:8080/imagens/background.jpg');
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 50vh;
-    margin-top: 10%;
-    border-style: double white;
-    margin-left: 40%;
-    margin-right: 40%;
-    background-color: #050507;
-    border-radius: 15%;
+    background-size: cover;
+    background-position: center;
 }
 
-form h1{
-  font-size: 4rem;
-  margin-bottom: 3rem;
-  font-style: oblique;
-  color: aliceblue;
+.login-form {
+  width: 400px; /* Aumente ou diminua o valor conforme necessário */
+  height: 400px; /* Aumente ou diminua o valor conforme necessário */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-    form input {
-      width: 50%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    form button {
-      width: 50%;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 5px;
-      background-color: #009b15;
-      color: #fff;
-      cursor: pointer;
-    }
-  
-  
-  
-  /* Estilo do formulário */
-  input[type=text], input[type=password] {
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 2px solid #ccc;
-  }
-  
-  /* Botão de enviar */
-  input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(16, 16, 16);
-    color: #fff;
-    border-bottom: 1px solid #f6ff00;
-    padding: 15px;
-  }
-  
-  header span {
-    margin-right: auto;
-  }
-  
-  .container {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .btn-logout {
-    background-color: #ff0000;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-logout:hover {
-    background-color: #cc0000;
-  }
-  
-  .router-outlet {
-    padding: 10px;
-  }
-  
-  @media only screen and (max-width: 768px) {
-    .header {
-      padding: 5px;
-    }
-  }
-  
+.login-form input,
+.login-form button {
+  width: 100%;
+  height: 50px; /* Aumente ou diminua o valor conforme necessário */
+  font-size: 18px; /* Aumente ou diminua o valor conforme necessário */
+  /* Outros estilos personalizados */
+}
 
-  .login-title {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .login-container {
-    background-image: url('http://127.0.0.1:8080/imagens/background.jpg');
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      background-size: cover;
-      background-position: center;
-  }
-
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: transparent;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-image {
-    max-width: 80%;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 50%;
-  }
+.login-image {
+  max-width: 85%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}

@@ -39,8 +39,8 @@ td{
 }
 th {
   padding: 20px;
-  border: 1px solid #ffffff;
-  background-color: rgb(24, 24, 156);
+  border: 1px solid rgb(102, 39, 14);
+  background-color: rgb(102, 39, 14);
   color: #fff;
 
 }
@@ -97,6 +97,15 @@ width: 60%;
   margin-right: auto;
   margin-top: 20px;
   }
+  }
+
+  h1 {
+    font-size: 70px;
+      text-align: center;
+      margin-bottom: 2px;
+      font-family: "Algerian", sans-serif;
+      color: rgb(102, 39, 14);
+    
   }
 
 

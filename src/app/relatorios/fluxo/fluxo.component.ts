@@ -142,7 +142,7 @@ export class FluxoComponent {
 
 
 
-    doc.save('FaltaCozinha.pdf');
+    doc.save('Fluxo.pdf');
   }
 
   async saveUser(user: Fluxo) {

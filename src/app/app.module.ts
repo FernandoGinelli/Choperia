@@ -28,16 +28,20 @@ import { FluxoComponent } from './relatorios/fluxo/fluxo.component';
 import { CompraClientesComponent } from './relatorios/compra-clientes/compra-clientes.component';
 import { EmailClientesComponent } from './relatorios/email-clientes/email-clientes.component';
 import { EmailService } from './relatorios/email-clientes/email.service';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent, RelatoriosComponent, FluxoComponent, CompraClientesComponent, EmailClientesComponent
+    AppComponent, TodoComponent, AuthComponent, CadastroUsuarioComponent, ProdutosComponent, RetirarProdutoComponent, AdicionarProdutoComponent, CadastroClienteComponent, VincularClienteComponent, ChoppComponent, ReporChoppComponent, CaixaComponent, SelfServiceComponent, EditProdComponent, AcessoComponent, ButtontypeOkComponent, EditarComponent, RelatoriosComponent, FluxoComponent, CompraClientesComponent, EmailClientesComponent, HomeComponent
   ],
   imports: [NgbdCollapseNavbar,
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule, FormsModule
+    HttpClientModule, FormsModule, NgbDropdownModule, BrowserAnimationsModule
   ],
   providers: [EmailService],
   bootstrap: [AppComponent]

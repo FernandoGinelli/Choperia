@@ -18,10 +18,9 @@ var validUsers: User[] = [  { id: "1", name: "Cozinheiro",password:"Cozinheiro",
  { id: "4", name: "Fiscal de Entrada",password:"Fiscal de Entrada", roles: [ "FiscalEnt" ] },
  { id: "5", name: "Caixa",password:"Caixa", roles: [ "Caixa" ] },
  { id: "6", name: "Repositor de Estoque",password:"Repositor de Estoque", roles: [ "Repositor" ] },
- { id: "7", name: "aaaaaaaaa",password:"aaaaaaaaa", roles: [ "aaaaaaaaaaa" ] },
- { id: "8", name: "aaaaaaaaa",password:"aaaaaaaaa", roles: [ "aaaaaaaaaaa" ] },
- { id: "9", name: "aaaaaaaaa",password:"aaaaaaaaa", roles: [ "aaaaaaaaaaa" ] },
- { id: "10", name: "aaaaaaaaa",password:"aaaaaaaaa", roles: [ "aaaaaaaaaaa" ] },
+ { id: "7", name: "Cliente",password:"Cliente", roles: [ "Cliente" ] },
+
+
 ]
 
 

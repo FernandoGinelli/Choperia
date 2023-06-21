@@ -37,15 +37,3 @@ class Produto {
   }
 }
 
-class Bebida {
-  @Fields.string()
-  nome!: string;
-
-  @Fields.number()
-  preco!: number;
-
-  constructor(nome: string, preco: number) {
-    this.nome = nome;
-    this.preco = preco;
-  }
-}

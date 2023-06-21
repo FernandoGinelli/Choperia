@@ -1,10 +1,8 @@
 import { Allow, Entity, Fields, Remult, remult, } from "remult"
 
 @Entity<Produtos>("produtos", {
-  allowApiCrud: Allow.authenticated,
-  allowApiInsert:["admin", "fisSelf"],
-  allowApiDelete:["admin","cozin","fisSelf"],
-  allowApiUpdate: ["admin", "fisSelf"]
+  allowApiCrud: Allow.everyone,
+
 })
 
 

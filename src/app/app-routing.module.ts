@@ -14,10 +14,11 @@ import { RetirarProdutoComponent } from './retirar-produto/retirar-produto.compo
 import { SelfServiceComponent } from './self-service/self-service.component';
 import { TodoComponent } from './todo/todo.component';
 import { VincularClienteComponent } from './vincular-cliente/vincular-cliente.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: RetirarProdutoComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'products', component: ProdutosComponent },
   { path: 'cadusuario', component: CadastroUsuarioComponent },
   { path: 'todo', component: TodoComponent },
