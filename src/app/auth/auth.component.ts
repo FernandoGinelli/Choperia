@@ -10,6 +10,7 @@ import { FiscalSelf } from 'src/shared/fiscalself';
 import { Cozinheiro } from 'src/shared/cozinheiro';
 import { Repositor } from 'src/shared/repositor';
 import { Router } from '@angular/router';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-auth',
@@ -183,14 +184,22 @@ export class AuthComponent implements OnInit {
       .post('/api/signOut', {})
       .subscribe(() => (this.remult.user = undefined));
       this.private  = this.usersRepo.find().then((users) => (this.users = users));
+    this.ngOnInit()
   }
 
+  atualizar(){
+    timer(100).subscribe(() => {
+      this.private  = this.usersRepo.find().then((users) => (this.users = users));
+      this.atualizar()
+    });
+   }
 
 
   ngOnInit() {
-    this.private  = this.usersRepo.find().then((users) => (this.users = users));
+    this.atualizar()
     this.http
       .get<User>('/api/currentUser')
       .subscribe((user) => (this.remult.user = user));
   }
+
 }

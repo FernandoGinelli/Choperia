@@ -95,7 +95,7 @@
 		<!-- Step 2: Add the ngbCollapse directive to the element below. -->
 		<div  [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" style="position: relative;">
 			<ul class="navbar-nav">
-					<li *ngIf="permissaoRepositor.metadata.apiInsertAllowed()" class="nav-item dropdown active" [class.show]="isDropdownOpen" (click)="isDropdownOpen = !isDropdownOpen">
+					<li *ngIf="permissaoCozinheiro.metadata.apiInsertAllowed() || permissaoRepositor.metadata.apiInsertAllowed()" class="nav-item dropdown active" [class.show]="isDropdownOpen" (click)="isDropdownOpen = !isDropdownOpen">
 					<a class="nav-link dropdown-toggle" id="produtosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					  Produtos
 					</a>
@@ -107,7 +107,7 @@
 				  </li>
 
 				<li  class="nav-item active">
-					<a *ngIf="permissaoCaixa.metadata.apiUpdateAllowed()" class="nav-link" routerLink="cadusuario" (click)="isMenuCollapsed = true">Usuarios</a>
+					<a *ngIf="permissaoCaixa.metadata.apiInsertAllowed() && permissaoFiscalSelf.metadata.apiInsertAllowed()" class="nav-link" routerLink="cadusuario" (click)="isMenuCollapsed = true">Usuarios</a>
 				</li>
         <li *ngIf="permissaoFiscal.metadata.apiInsertAllowed()" class="nav-item active">
 					<!-- Step 4: Close the menu when a link is clicked. -->
