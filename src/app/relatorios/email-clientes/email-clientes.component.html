@@ -1,41 +1,53 @@
+<div class="modal-content" style="height: auto; width: 35rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <span class="close" (click)="activeModal.dismiss()" style="margin-left: 95%; height: 20px; width: 20px;">&times;</span>
 
-
-<div class="modal-content" style="height:  auto; width: 35rem;"  >
-  <span class="close" (click)="activeModal.dismiss()" style="margin-left: 95%; height: 20px; width: 20px; ">&times;</span>
-
-  <h2 style="margin-left: 2rem;">Email</h2>
-  <div style="height:  auto; width: auto; margin-right: 20%;" >
-    <form (submit)="funcao(subject, text, html)" style="margin: 2rem;">
+  <h2 style="margin-left: 2rem; text-align: center;">Enviar Informativo por Email</h2>
+  <div style="width: 80%;">
+    <form (submit)="funcao(subject, text, html)" style="margin: 0.1rem;">
       <div class="form-group">
         <input
           type="text"
           class="form-control"
-          placeholder="Assunto:"
+          placeholder="Assunto"
           [(ngModel)]="subject"
           name="subject"
         />
 
-        <input
-          type="text"
+        <textarea
           class="form-control"
-          placeholder="Mensagem:"
+          placeholder="Mensagem"
           [(ngModel)]="html"
           name="html"
-        />
-
+          rows="5"
+        >
+        </textarea>
       </div>
 
-      <ngb-datepicker style="margin-right: 10px;" #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+      <ngb-datepicker
+        style="margin-right: 10px;"
+        #dp
+        (dateSelect)="onDateSelection($event)"
+        [displayMonths]="2"
+        [dayTemplate]="t"
+        outsideDays="hidden"
+      >
       </ngb-datepicker>
       <ng-template #t let-date let-focused="focused">
-        <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)" (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+        <span
+          class="custom-day"
+          [class.focused]="focused"
+          [class.range]="isRange(date)"
+          [class.faded]="isHovered(date) || isInside(date)"
+          (mouseenter)="hoveredDate = date"
+          (mouseleave)="hoveredDate = null"
+        >
           {{ date.day }}
         </span>
       </ng-template>
 
-      <div style="margin-left: 40%; margin-top: 20px;">
-        <button type="submit" class="btn btn-primary">Gerar Relatório</button>
+      <div style="text-align: center; margin-top: 20px;">
+        <button type="submit" class="btn btn-primary">Enviar Email</button>
       </div>
-    </form></div>
+    </form>
+  </div>
 </div>
-

@@ -13,7 +13,7 @@
 	}
 
 	.bg-marrom {
-  background: linear-gradient(to right, rgb(102, 39, 14) 50%, rgb(118, 61, 39) 50%);
+  background-color: rgb(102, 39, 14);
 
 }
 
@@ -100,9 +100,9 @@
 					  Produtos
 					</a>
 					<div class="dropdown-menu bg-marrom1" aria-labelledby="produtosDropdown" [class.show]="isDropdownOpen">
-						<a class="dropdown-item" routerLink="products" (click)="isMenuCollapsed = true">Gerenciar Produtos</a>
+						<a *ngIf="permissaoRepositor.metadata.apiInsertAllowed()" class="dropdown-item" routerLink="products" (click)="isMenuCollapsed = true">Gerenciar Produtos</a>
 						<a class="dropdown-item" routerLink="retiprod" (click)="isMenuCollapsed = true">Retirar Produtos</a>
-					  <a class="dropdown-item" routerLink="addprod" (click)="isMenuCollapsed = true">Adicionar Produtos</a>
+					  <a *ngIf="permissaoRepositor.metadata.apiInsertAllowed()" class="dropdown-item" routerLink="addprod" (click)="isMenuCollapsed = true">Adicionar Produtos</a>
 					</div>
 				  </li>
 
@@ -121,7 +121,7 @@
 				</li>
 
 				<div>
-					<a class="nav-link logo"><img src="http://127.0.0.1:8080/imagens/Chopperia.png" alt="Chopperia Igao" class= "logo-image  navbar-brand" [routerLink]="'.'"></a>
+					<a class="nav-link logo"><img src="http://127.0.0.1:8080/imagens/ChopperiaIcon.png" alt="Chopperia Igao" class= "logo-image  navbar-brand" [routerLink]="'.'"></a>
 					</div>
 
 				<li *ngIf="permissaoCaixa.metadata.apiInsertAllowed()" class="nav-item active">
